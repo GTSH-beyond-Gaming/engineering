@@ -1,20 +1,32 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import CookieBanner from './components/CookieBanner'
 import WhatsAppButton from './components/WhatsAppButton'
-import ChatBot from './components/ChatBot'
-import Home from './pages/Home'
-import Services from './pages/Services'
-import Portfolio from './pages/Portfolio'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Impressum from './pages/Impressum'
-import Datenschutz from './pages/Datenschutz'
-import Pakete from './pages/Pakete'
-import KISchulungen from './pages/KISchulungen'
-import Grafikdesign from './pages/Grafikdesign'
+// ChatBot disabled - localhost:3334 backend not available in production
+// import ChatBot from './components/ChatBot'
+
+// Lazy load all pages for code-splitting
+const Home = lazy(() => import('./pages/Home'))
+const Services = lazy(() => import('./pages/Services'))
+const Portfolio = lazy(() => import('./pages/Portfolio'))
+const About = lazy(() => import('./pages/About'))
+const Contact = lazy(() => import('./pages/Contact'))
+const Impressum = lazy(() => import('./pages/Impressum'))
+const Datenschutz = lazy(() => import('./pages/Datenschutz'))
+const Pakete = lazy(() => import('./pages/Pakete'))
+const KISchulungen = lazy(() => import('./pages/KISchulungen'))
+// Grafikdesign removed - focusing on core services
+// const Grafikdesign = lazy(() => import('./pages/Grafikdesign'))
+
+// Loading spinner component
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center">
+    <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full"></div>
+  </div>
+)
 
 function App() {
   return (
@@ -22,24 +34,27 @@ function App() {
       <Router>
         <div className="min-h-screen bg-transparent flex flex-col transition-colors duration-500">
           <Navigation />
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/impressum" element={<Impressum />} />
-              <Route path="/datenschutz" element={<Datenschutz />} />
-              <Route path="/pakete" element={<Pakete />} />
-              <Route path="/ki-schulungen" element={<KISchulungen />} />
-              <Route path="/grafikdesign" element={<Grafikdesign />} />
-            </Routes>
+          <main id="main-content" className="flex-grow">
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/impressum" element={<Impressum />} />
+                <Route path="/datenschutz" element={<Datenschutz />} />
+                <Route path="/pakete" element={<Pakete />} />
+                <Route path="/ki-schulungen" element={<KISchulungen />} />
+                {/* Grafikdesign route removed */}
+              </Routes>
+            </Suspense>
           </main>
           <Footer />
           <CookieBanner />
           <WhatsAppButton />
-          <ChatBot />
+          {/* ChatBot disabled - localhost:3334 backend not available in production */}
+          {/* <ChatBot /> */}
         </div>
       </Router>
     </ThemeProvider>
@@ -47,5 +62,3 @@ function App() {
 }
 
 export default App
-
-

@@ -41,7 +41,7 @@ export default function AnimatedStats() {
   ]
   
   return (
-    <section className="section bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white" ref={ref}>
+    <section className="section bg-black/50 backdrop-blur-md border-y border-primary/30 text-white" ref={ref}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ export default function AnimatedStats() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="mb-4 text-white">Warum GTSH Engineering?</h2>
+          <h2 className="mb-4 text-white">Unsere Stärken in Zahlen</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Zahlen die für sich sprechen. Performance, Transparenz und Qualität.
           </p>

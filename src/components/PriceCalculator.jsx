@@ -7,7 +7,7 @@ export default function PriceCalculator() {
   const [addOns, setAddOns] = useState([])
   
   const websiteTypes = [
-    { name: 'Landing Page', price: 1000 },
+    { name: 'Landing Page', price: 800 },
     { name: 'Custom Website', price: 2500 },
     { name: 'E-Commerce', price: 5000 }
   ]
@@ -59,7 +59,7 @@ export default function PriceCalculator() {
           className="text-center mb-12"
         >
           <h2 className="mb-4 text-white">Was kostet Ihr Projekt?</h2>
-          <p className="text-lg text-white/80 text-white/90">
+          <p className="text-lg text-white/90">
             Berechnen Sie den Preis für Ihre individuelle Lösung.
           </p>
         </motion.div>
@@ -92,7 +92,7 @@ export default function PriceCalculator() {
                   `}
                 >
                   <p className="font-semibold mb-1 text-white">{type.name}</p>
-                  <p className="text-2xl font-bold text-primary text-white/80">
+                  <p className="text-2xl font-bold text-primary">
                     €{type.price.toLocaleString()}
                   </p>
                 </motion.button>
@@ -129,7 +129,7 @@ export default function PriceCalculator() {
                       />
                       <span className="text-white">{addon.name}</span>
                     </div>
-                    <span className="font-semibold text-primary text-white/80">
+                    <span className="font-semibold text-primary">
                       +€{addon.price.toLocaleString()}
                     </span>
                   </motion.label>

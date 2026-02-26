@@ -20,8 +20,8 @@ export default {
       colors: {
         // GTSH Brand Colors (Grau-Orange Theme)
         primary: {
-          DEFAULT: '#F57C00',    // Orange (Haupt)
-          dark: '#E65100',       // Orange dunkel (Hover)
+          DEFAULT: '#FF8F00',    // Orange (Haupt) - aufgehellt für besseren Kontrast
+          dark: '#F57C00',       // Orange dunkel (Hover)
           light: '#FFB74D',      // Orange hell (Highlights)
         },
         secondary: {

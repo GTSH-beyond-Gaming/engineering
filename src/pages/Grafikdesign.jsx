@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Palette, PenTool, Layers, RefreshCcw, MessageSquare, CheckCircle, ArrowRight, Star } from 'lucide-react'
+import { Palette, PenTool, Layers, RefreshCcw, MessageSquare, CheckCircle, ArrowRight, Star, Sparkles } from 'lucide-react'
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -35,6 +35,22 @@ const processSteps = [
 ]
 
 const services = [
+  {
+    title: 'AI-Bildgenerierung',
+    price: 'Ab €50/Bild',
+    description: 'Photorealistische Bilder mit lokaler KI – für Marketing, Produktfotos und Content.',
+    features: [
+      'Photorealistische Qualität',
+      'Lokale Generierung (keine Cloud)',
+      'Unbegrenzte Revisionen',
+      'Alle Auflösungen bis 4K',
+      'Lieferzeit: 24-48h',
+      '10er Pack: €400 (20% Rabatt)'
+    ],
+    icon: Sparkles,
+    color: 'secondary',
+    isNew: true
+  },
   {
     title: 'Social Media Bundle',
     price: '€300',
@@ -103,7 +119,7 @@ export default function Grafikdesign() {
       <link rel="canonical" href="https://gtsh-engineering.de/grafikdesign" />
 
       {/* Hero Section */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-black/50 backdrop-blur-md border-b border-primary/30 text-white">
         <div className="container-custom text-center">
           <motion.h1
             className="mb-6"
@@ -129,7 +145,7 @@ export default function Grafikdesign() {
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <motion.h2
-              className="text-center mb-4 text-gray-900 text-white"
+              className="text-center mb-4 text-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -138,7 +154,7 @@ export default function Grafikdesign() {
               Unsere Grafikdesign-Services
             </motion.h2>
             <motion.p
-              className="text-center text-lg text-white/80 text-white/90 mb-12 max-w-2xl mx-auto"
+              className="text-center text-lg text-white/90 mb-12 max-w-2xl mx-auto"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -161,6 +177,8 @@ export default function Grafikdesign() {
                     className={`card group hover:shadow-lg transition-all duration-300 ${
                       service.highlighted
                         ? 'border-2 border-secondary/50 bg-gradient-to-br from-secondary/5 to-primary/5 relative'
+                        : service.isNew
+                        ? 'border-2 border-primary/50 bg-gradient-to-br from-primary/5 to-secondary/5 relative'
                         : ''
                     }`}
                     custom={index}
@@ -174,17 +192,22 @@ export default function Grafikdesign() {
                         EMPFOHLEN
                       </span>
                     )}
+                    {service.isNew && (
+                      <span className="absolute -top-3 left-4 bg-primary text-white text-xs px-3 py-1 rounded-full font-semibold animate-pulse">
+                        NEU!
+                      </span>
+                    )}
 
                     <div className={`w-12 h-12 bg-gradient-to-br ${bgGradient} rounded-lg flex items-center justify-center mb-4`}>
                       <Icon className="w-6 h-6 text-white" />
                     </div>
 
                     <h3 className="mb-3">{service.title}</h3>
-                    <p className="text-white/90 text-white/90 mb-4">
+                    <p className="text-white/90 mb-4">
                       {service.description}
                     </p>
 
-                    <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-6">
+                    <ul className="space-y-2 text-sm text-white/90 mb-6">
                       {service.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-2">
                           <span className="text-green-500 mt-0.5">&#10003;</span>
@@ -207,7 +230,7 @@ export default function Grafikdesign() {
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <motion.h2
-              className="text-center mb-4 text-gray-900 text-white"
+              className="text-center mb-4 text-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -216,7 +239,7 @@ export default function Grafikdesign() {
               Unser Design-Prozess
             </motion.h2>
             <motion.p
-              className="text-center text-lg text-white/80 text-white/90 mb-12 max-w-2xl mx-auto"
+              className="text-center text-lg text-white/90 mb-12 max-w-2xl mx-auto"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -248,13 +271,13 @@ export default function Grafikdesign() {
                     <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <div className="text-sm font-semibold text-primary text-white/80 mb-2">
+                    <div className="text-sm font-semibold text-primary mb-2">
                       Schritt {index + 1}
                     </div>
-                    <h3 className="text-lg font-bold mb-2 text-gray-900 text-white">
+                    <h3 className="text-lg font-bold mb-2 text-white">
                       {step.title}
                     </h3>
-                    <p className="text-white/80 text-white/60 text-sm">
+                    <p className="text-white/60 text-sm">
                       {step.description}
                     </p>
                   </motion.div>
@@ -265,8 +288,85 @@ export default function Grafikdesign() {
         </div>
       </section>
 
+      {/* AI Gallery Showcase */}
+      <section className="section">
+        <div className="container-custom">
+          <div className="max-w-6xl mx-auto">
+            <motion.h2
+              className="text-center mb-4 text-white"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              AI-Generierte Beispiele
+            </motion.h2>
+            <motion.p
+              className="text-center text-lg text-white/90 mb-12 max-w-2xl mx-auto"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              Alle Bilder wurden mit unserer lokalen KI-Infrastruktur generiert. 
+              Photorealistisch, hochauflösend, sofort einsatzbereit.
+            </motion.p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { src: '/gallery/workspace.png', title: 'Modern Workspace', desc: 'Professionelle Office-Szene' },
+                { src: '/gallery/serverroom.png', title: 'Server Room', desc: 'Tech-Infrastruktur Visual' },
+                { src: '/gallery/gaming-pc.png', title: 'Gaming PC Build', desc: 'Produkt-Fotografie Style' },
+                { src: '/gallery/ai-abstract.png', title: 'AI Visualization', desc: 'Abstrakte Tech-Grafik' },
+                { src: '/gallery/team-collab.png', title: 'Team Collaboration', desc: 'Business-Stock-Ersatz' },
+                { src: '/gallery/circuitboard.png', title: 'Circuit Board', desc: 'Makro Tech-Fotografie' },
+              ].map((item, index) => (
+                <motion.div
+                  key={item.src}
+                  className="group relative overflow-hidden rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <div>
+                      <h4 className="text-white font-semibold">{item.title}</h4>
+                      <p className="text-white/70 text-sm">{item.desc}</p>
+                    </div>
+                  </div>
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="bg-primary/90 text-white text-xs px-2 py-1 rounded-full">
+                      AI Generated
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              className="mt-12 text-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <p className="text-white/60 mb-4">
+                Generiert mit SDXL auf RTX 5090 • Keine Stock-Fotos • 100% lokal
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-black/50 backdrop-blur-md border-b border-primary/30 text-white">
         <div className="container-custom text-center">
           <motion.h2
             className="mb-6"

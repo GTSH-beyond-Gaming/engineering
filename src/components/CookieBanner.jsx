@@ -146,16 +146,16 @@ export default function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-0 left-0 right-0 z-[100] p-4 bg-transparent border-t-2 border-primary shadow-[0_-10px_40px_rgba(0,0,0,0.15)]"
+          className="fixed bottom-0 left-0 right-0 z-[100] p-4 bg-black/95 backdrop-blur-md border-t border-primary/30 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]"
         >
           <div className="container-custom max-w-5xl mx-auto">
             {/* Main Banner */}
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
               <div className="flex-1">
-                <h3 className="font-semibold text-gray-900 text-white mb-1 text-base">
+                <h3 className="font-semibold text-white mb-1 text-base">
                   Cookie-Einstellungen
                 </h3>
-                <p className="text-sm text-white/80 text-white/60 leading-relaxed">
+                <p className="text-sm text-white/60 leading-relaxed">
                   Wir verwenden Cookies und ähnliche Technologien, um unsere Website zu optimieren.
                   Einige sind technisch notwendig, andere helfen uns, die Nutzererfahrung zu verbessern.
                   Sie können wählen, welche Kategorien Sie zulassen möchten.{' '}
@@ -169,13 +169,13 @@ export default function CookieBanner() {
               <div className="flex flex-col sm:flex-row gap-2 flex-shrink-0 w-full lg:w-auto">
                 <button
                   onClick={() => setShowDetails(!showDetails)}
-                  className="px-5 py-2.5 text-sm border border-gray-300 dark:border-gray-600 text-white/90 text-white/90 hover:bg-transparent dark:hover:bg-gray-800 rounded-lg font-medium transition-colors"
+                  className="px-5 py-2.5 text-sm border border-gray-300 dark:border-gray-600 text-white/90 hover:bg-transparent dark:hover:bg-gray-800 rounded-lg font-medium transition-colors"
                 >
                   {showDetails ? 'Weniger' : 'Einstellungen'}
                 </button>
                 <button
                   onClick={handleDeclineAll}
-                  className="px-5 py-2.5 text-sm border border-gray-300 dark:border-gray-600 text-white/90 text-white/90 hover:bg-transparent dark:hover:bg-gray-800 rounded-lg font-medium transition-colors"
+                  className="px-5 py-2.5 text-sm border border-gray-300 dark:border-gray-600 text-white/90 hover:bg-transparent dark:hover:bg-gray-800 rounded-lg font-medium transition-colors"
                 >
                   Nur Notwendige
                 </button>
@@ -203,10 +203,10 @@ export default function CookieBanner() {
                     <div className="flex items-start justify-between gap-4 p-3 bg-transparent rounded-lg">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <h4 className="font-semibold text-sm text-gray-900 text-white">Technisch notwendig</h4>
+                          <h4 className="font-semibold text-sm text-white">Technisch notwendig</h4>
                           <span className="text-xs bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-full">Immer aktiv</span>
                         </div>
-                        <p className="text-xs text-white/70 text-white/60">
+                        <p className="text-xs text-white/60">
                           Diese Cookies sind für den Betrieb der Website erforderlich. Dazu gehören Cookie-Einstellungen,
                           Dark-Mode-Präferenz und Session-Verwaltung. Ohne diese Cookies funktioniert die Website nicht korrekt.
                         </p>
@@ -221,8 +221,8 @@ export default function CookieBanner() {
                     {/* Analyse */}
                     <div className="flex items-start justify-between gap-4 p-3 bg-transparent rounded-lg">
                       <div className="flex-1">
-                        <h4 className="font-semibold text-sm text-gray-900 text-white mb-1">Analyse & Statistiken</h4>
-                        <p className="text-xs text-white/70 text-white/60">
+                        <h4 className="font-semibold text-sm text-white mb-1">Analyse & Statistiken</h4>
+                        <p className="text-xs text-white/60">
                           Diese Cookies helfen uns zu verstehen, wie Besucher unsere Website nutzen.
                           Wir verwenden Google Analytics 4 und Microsoft Clarity zur anonymisierten Auswertung.
                           IP-Adressen werden anonymisiert. Keine Daten werden an Dritte verkauft.
@@ -246,8 +246,8 @@ export default function CookieBanner() {
                     {/* Marketing */}
                     <div className="flex items-start justify-between gap-4 p-3 bg-transparent rounded-lg">
                       <div className="flex-1">
-                        <h4 className="font-semibold text-sm text-gray-900 text-white mb-1">Marketing & Personalisierung</h4>
-                        <p className="text-xs text-white/70 text-white/60">
+                        <h4 className="font-semibold text-sm text-white mb-1">Marketing & Personalisierung</h4>
+                        <p className="text-xs text-white/60">
                           Diese Cookies werden für personalisierte Werbung und Remarketing verwendet.
                           Aktuell setzen wir keine Marketing-Cookies ein. Diese Option ist für zukünftige
                           Werbekampagnen (z.B. Google Ads) vorbereitet.

@@ -1,37 +1,56 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+// Check if animation has already played this session
+const ANIMATION_KEY = 'gtsh-terminal-played'
+
 export default function TerminalAnimation() {
+  const [hasPlayed, setHasPlayed] = useState(() => {
+    // Check sessionStorage on mount
+    if (typeof window !== 'undefined') {
+      return sessionStorage.getItem(ANIMATION_KEY) === 'true'
+    }
+    return false
+  })
+
   const lines = [
     { text: '> Initiating local AI...', delay: 0 },
-    { text: '> Model: qwen3:32b', delay: 800 },
-    { text: '> Loading weights... ████████████ 100%', delay: 1600 },
-    { text: '> Speed: 61 tokens/sec ✓', delay: 2400 },
-    { text: '> Cloud dependency: NONE ✓', delay: 3200 },
-    { text: '> DSGVO compliance: 100% ✓', delay: 4000 },
-    { text: '> Status: READY 🚀', delay: 4800 },
+    { text: '> Loading private model... ████████████ 100%', delay: 800 },
+    { text: '> Processing speed: 61 tokens/sec ✓', delay: 1600 },
+    { text: '> Cloud dependency: NONE ✓', delay: 2400 },
+    { text: '> DSGVO compliance: 100% ✓', delay: 3200 },
+    { text: '> Status: READY 🚀', delay: 4000 },
   ]
 
   const [visibleLines, setVisibleLines] = useState([])
-  const [isVisible, setIsVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState(!hasPlayed)
 
   useEffect(() => {
+    // Skip if already played
+    if (hasPlayed) return
+
     const timeouts = lines.map((line) =>
       setTimeout(() => {
         setVisibleLines(prev => [...prev, line.text])
       }, line.delay)
     )
 
-    // Fade out 2.5 seconds after last line appears
+    // Fade out after animation completes
     const fadeTimeout = setTimeout(() => {
       setIsVisible(false)
-    }, 7300)
+      // Mark as played for this session
+      sessionStorage.setItem(ANIMATION_KEY, 'true')
+      setHasPlayed(true)
+    }, 6500)
 
     return () => {
       timeouts.forEach(clearTimeout)
       clearTimeout(fadeTimeout)
     }
-  }, [])
+  }, [hasPlayed])
+
+  // Don't render anything if already played
+  if (hasPlayed) return null
 
   return (
     <AnimatePresence>
@@ -52,7 +71,7 @@ export default function TerminalAnimation() {
                 key={i}
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
-                className={line.includes('✓') ? 'text-green-400' : line.includes('READY') ? 'text-white/80' : 'text-gray-300'}
+                className={line.includes('✓') ? 'text-green-400' : line.includes('READY') ? 'text-primary' : 'text-gray-300'}
               >
                 {line}
               </motion.div>
@@ -66,6 +85,3 @@ export default function TerminalAnimation() {
     </AnimatePresence>
   )
 }
-
-
-

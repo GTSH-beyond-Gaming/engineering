@@ -6,7 +6,7 @@ export default function Testimonials() {
       name: 'GTSH Beyond Gaming',
       company: 'Gaming & E-Commerce',
       rating: 5,
-      text: '11 Google Reviews mit 5.0 Sternen sprechen für sich. Modern, schnell und SEO-optimiert! Die Website lädt in unter 1 Sekunde und sieht einfach mega aus.',
+      text: '12 Google Reviews mit 5.0 Sternen sprechen für sich. Modern, schnell und SEO-optimiert! Die Website lädt in unter 1 Sekunde und sieht einfach mega aus.',
       project: 'E-Commerce Platform',
       verified: true
     },
@@ -26,10 +26,10 @@ export default function Testimonials() {
       <div className="container-custom">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="mb-4 text-gray-900 text-white">
+          <h2 className="mb-4 text-white">
             Unser erstes Projekt & deine Chance
           </h2>
-          <p className="text-xl text-white/80 text-white/90 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">
             Echtes Projekt, echte Ergebnisse - und 20% Pionier-Rabatt für dich!
           </p>
         </div>
@@ -61,16 +61,16 @@ export default function Testimonials() {
               </div>
 
               {/* Text */}
-              <p className="text-white/90 text-white/90 mb-6 leading-relaxed">
+              <p className="text-white/90 mb-6 leading-relaxed">
                 "{testimonial.text}"
               </p>
 
               {/* Author */}
               <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-                <p className="font-semibold text-gray-900 text-white">
+                <p className="font-semibold text-white">
                   {testimonial.name}
                 </p>
-                <p className="text-sm text-white/80 text-white/60">
+                <p className="text-sm text-white/60">
                   {testimonial.company}
                 </p>
                 <p className="text-xs text-primary mt-1">
@@ -99,7 +99,7 @@ export default function Testimonials() {
             href="https://gtsh-beyond-gaming.de"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-white/80 text-white/60 hover:text-primary transition-colors"
+            className="inline-flex items-center gap-2 text-white/60 hover:text-primary transition-colors"
           >
             <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
             <span>Mehr Bewertungen auf unseren Projekten ansehen</span>

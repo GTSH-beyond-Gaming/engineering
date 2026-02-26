@@ -15,7 +15,7 @@ export default function FAQ({ items }) {
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
             className="w-full flex items-center justify-between text-left p-6"
           >
-            <h3 className="font-semibold text-gray-900 text-white pr-4">
+            <h3 className="font-semibold text-white pr-4">
               {item.question}
             </h3>
             <ChevronDown 
@@ -27,7 +27,7 @@ export default function FAQ({ items }) {
           
           {openIndex === index && (
             <div className="px-6 pb-6">
-              <p className="text-white/80 text-white/90 leading-relaxed">
+              <p className="text-white/90 leading-relaxed">
                 {item.answer}
               </p>
             </div>

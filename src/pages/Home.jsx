@@ -66,7 +66,7 @@ export default function Home() {
               >
                 <RippleButton
                   onClick={() => window.location.href = '/contact'}
-                  className="bg-secondary hover:bg-secondary-dark text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 text-lg shadow-glow-teal hover:shadow-glow-lg hover:scale-105 cursor-pointer group"
+                  className="bg-secondary hover:bg-secondary-dark text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 text-lg shadow-glow hover:shadow-glow-lg hover:scale-105 cursor-pointer group"
                 >
                   15-Min Strategy Session buchen
                   <span className="inline-block ml-2 group-hover:translate-x-2 transition-transform">→</span>
@@ -140,7 +140,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="mb-6 text-gray-900 text-white">Das Problem</h2>
+              <h2 className="mb-6 text-white">Das Problem</h2>
               <ul className="space-y-4 text-lg text-white/90">
                 <li className="flex items-start">
                   <span className="text-red-500 mr-3 text-2xl">✗</span>
@@ -161,7 +161,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-gray-900 text-white">Die Lösung</h2>
+              <h2 className="mb-6 text-white">Die Lösung</h2>
               <ul className="space-y-4 text-lg text-white/90">
                 <li className="flex items-start">
                   <span className="text-green-500 mr-3 text-2xl">✓</span>
@@ -213,31 +213,31 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="mb-3 group-hover:text-primary transition-colors">Web-Engineering</h3>
-              <p className="text-white/90 text-white/90 mb-4">
+              <p className="text-white/90 mb-4">
                 Moderne Websites die konvertieren. React, Next.js, SEO-optimiert.
               </p>
-              <p className="text-sm text-white/70 text-white/60 line-through mb-1">Ab €2.500</p>
+              <p className="text-sm text-white/60 line-through mb-1">Ab €2.500</p>
               <p className="font-semibold text-primary text-lg">🚀 Ab €2.000 (Pionier-Preis!)</p>
             </motion.div>
 
             {/* Automation */}
             <motion.div 
-              className="card group hover:shadow-glow-teal transition-all duration-300 border border-transparent hover:border-secondary/30"
+              className="card group hover:shadow-glow transition-all duration-300 border border-transparent hover:border-secondary/30"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center mb-4 shadow-glow-teal group-hover:shadow-glow-lg transition-shadow">
+              <div className="w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center mb-4 shadow-glow group-hover:shadow-glow-lg transition-shadow">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <h3 className="mb-3 group-hover:text-white/80 transition-colors">Business Automation</h3>
-              <p className="text-white/90 text-white/90 mb-4">
+              <p className="text-white/90 mb-4">
                 Prozesse optimieren, Zeit sparen. Von PowerShell bis Python.
               </p>
-              <p className="text-sm text-white/70 text-white/60 line-through mb-1">Ab €1.500</p>
+              <p className="text-sm text-white/60 line-through mb-1">Ab €1.500</p>
               <p className="font-semibold text-white/80 text-lg">🚀 Ab €1.200 (Pionier-Preis!)</p>
             </motion.div>
 
@@ -255,31 +255,31 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="mb-3 group-hover:text-primary transition-colors">E-Learning</h3>
-              <p className="text-white/90 text-white/90 mb-4">
+              <p className="text-white/90 mb-4">
                 Digitale Trainings-Plattformen. Gamification, Analytics.
               </p>
-              <p className="text-sm text-white/70 text-white/60 line-through mb-1">Ab €5.000</p>
+              <p className="text-sm text-white/60 line-through mb-1">Ab €5.000</p>
               <p className="font-semibold text-primary text-lg">🚀 Ab €4.000 (Pionier-Preis!)</p>
             </motion.div>
 
             {/* Digital-Beratung */}
             <motion.div 
-              className="card group hover:shadow-glow-teal transition-all duration-300 border border-transparent hover:border-secondary/30"
+              className="card group hover:shadow-glow transition-all duration-300 border border-transparent hover:border-secondary/30"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center mb-4 shadow-glow-teal group-hover:shadow-glow-lg transition-shadow">
+              <div className="w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center mb-4 shadow-glow group-hover:shadow-glow-lg transition-shadow">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
               <h3 className="mb-3 group-hover:text-white/80 transition-colors">Digital-Beratung</h3>
-              <p className="text-white/90 text-white/90 mb-4">
+              <p className="text-white/90 mb-4">
                 KI-Strategie für Ihr Business. Tech-Stack-Audit, Roadmaps.
               </p>
-              <p className="text-sm text-white/70 text-white/60 line-through mb-1">€150/Stunde</p>
+              <p className="text-sm text-white/60 line-through mb-1">€150/Stunde</p>
               <p className="font-semibold text-white/80 text-lg">🚀 €120/h (Pionier-Preis!)</p>
             </motion.div>
 
@@ -300,10 +300,10 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="mb-3 group-hover:text-white/80 transition-colors">Private AI Solutions</h3>
-              <p className="text-white/90 text-white/90 mb-4">
+              <p className="text-white/90 mb-4">
                 KI-Modelle die 100% lokal auf IHRER Hardware laufen. Keine Cloud. Maximale Privatsphäre.
               </p>
-              <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+              <ul className="space-y-2 text-sm text-white/90 mb-4">
                 <li>✓ Lokale LLMs (bis 70B Parameter)</li>
                 <li>✓ Discord/WhatsApp Bots</li>
                 <li>✓ €0 laufende API-Kosten</li>
@@ -368,11 +368,11 @@ export default function Home() {
         <div className="container-custom">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="mb-4 text-gray-900 text-white">
+            <h2 className="mb-4 text-white">
               Unser erstes Projekt - Unsere Referenz
             </h2>
             <p className="text-xl text-white/90 max-w-2xl mx-auto">
-              Wir haben für uns selbst gebaut - mit der gleichen Qualität, die du von uns erwarten kannst!
+              Wir haben für uns selbst gebaut - mit der gleichen Qualität, die Sie von uns erwarten können!
             </p>
           </div>
 
@@ -381,10 +381,10 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8">
               {/* Left: Project Info */}
               <div className="card">
-                <h3 className="mb-4 text-gray-900 text-white">
+                <h3 className="mb-4 text-white">
                   GTSH Beyond Gaming
                 </h3>
-                <p className="text-white/90 text-white/90 mb-6">
+                <p className="text-white/90 mb-6">
                   Unsere eigene E-Commerce & Gaming-Plattform. Gebaut mit modernsten Technologien, 
                   SEO-optimiert und mit 90+ Lighthouse Score.
                 </p>
@@ -393,21 +393,21 @@ export default function Home() {
                   <div className="flex items-start gap-3">
                     <span className="text-green-500 text-xl">✓</span>
                     <div>
-                      <p className="font-semibold text-gray-900 text-white">React + Next.js</p>
+                      <p className="font-semibold text-white">React + Next.js</p>
                       <p className="text-sm text-white/60">Modern Tech-Stack</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-green-500 text-xl">✓</span>
                     <div>
-                      <p className="font-semibold text-gray-900 text-white">90+ Lighthouse Score</p>
+                      <p className="font-semibold text-white">90+ Lighthouse Score</p>
                       <p className="text-sm text-white/60">Performance-optimiert</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-green-500 text-xl">✓</span>
                     <div>
-                      <p className="font-semibold text-gray-900 text-white">DSGVO-konform</p>
+                      <p className="font-semibold text-white">DSGVO-konform</p>
                       <p className="text-sm text-white/60">Cookie-Banner, Datenschutz</p>
                     </div>
                   </div>
@@ -435,12 +435,12 @@ export default function Home() {
                         </svg>
                       ))}
                     </div>
-                    <span className="text-3xl font-bold text-gray-900 text-white">5,0</span>
+                    <span className="text-3xl font-bold text-white">5,0</span>
                   </div>
-                  <p className="text-xl font-semibold text-gray-900 text-white mb-2">
-                    11 echte Google Reviews
+                  <p className="text-xl font-semibold text-white mb-2">
+                    12 echte Google Reviews
                   </p>
-                  <p className="text-white/90 text-white/90 mb-4">
+                  <p className="text-white/90 mb-4">
                     Von echten Kunden, die unsere Qualität erlebt haben.
                   </p>
                   <a
@@ -456,10 +456,10 @@ export default function Home() {
                 {/* Pionier-Rabatt Card */}
                 <div className="card border-2 border-secondary bg-gradient-to-br from-secondary/5 to-primary/5">
                   <div className="text-4xl mb-3">🚀</div>
-                  <h3 className="mb-3 text-gray-900 text-white">
+                  <h3 className="mb-3 text-white">
                     Werde Pionier-Kunde!
                   </h3>
-                  <p className="text-white/90 text-white/90 mb-4">
+                  <p className="text-white/90 mb-4">
                     Als junges Start-up bieten wir aktuell <strong>20% Pionier-Rabatt</strong>! 
                     Profitiere von unserer Motivation, uns zu beweisen.
                   </p>
@@ -479,8 +479,8 @@ export default function Home() {
 
           {/* Call-to-Action */}
           <div className="text-center mt-16">
-            <p className="text-xl text-white/90 text-white/90 mb-6">
-              Willst du das nächste Projekt sein?
+            <p className="text-xl text-white/90 mb-6">
+              Wollen Sie das nächste Projekt sein?
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/portfolio" className="btn-primary">
@@ -503,7 +503,7 @@ export default function Home() {
           </p>
           <RippleButton
             onClick={() => window.location.href = '/contact'}
-            className="bg-secondary hover:bg-secondary-dark text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 text-lg shadow-glow-teal hover:shadow-glow-lg hover:scale-105 cursor-pointer"
+            className="bg-secondary hover:bg-secondary-dark text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 text-lg shadow-glow hover:shadow-glow-lg hover:scale-105 cursor-pointer"
           >
             Jetzt Termin vereinbaren
           </RippleButton>

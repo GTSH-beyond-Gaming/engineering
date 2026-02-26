@@ -2,18 +2,24 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
+    
+    <!-- Fonts: Lokal gehostet für DSGVO-Konformität -->
+    <link rel="preload" href="/fonts/inter/inter-v13-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/inter/inter-v13-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/hero-background.webp" as="image" type="image/webp">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GTSH Engineering - Websites, Automation, Grafik & KI für KMU in Thüringen</title>
-    <meta name="description" content="GTSH Engineering aus Saalfeld: Moderne Websites, Business Automation, Grafikdesign & lokale KI-Lösungen für KMU. DSGVO-konform. Transparente Preise ab 300€. Jetzt 15-Min Strategy Call buchen!" />
-    <meta name="keywords" content="KI Thüringen, Web-Development Saalfeld, Lokale KI Deutschland, Business Automation KMU, DSGVO-konforme KI, Webdesign Thüringen, Grafikdesign Saalfeld" />
+    <title>GTSH Engineering - Websites, Automation & KI für KMU in Thüringen</title>
+    <meta name="description" content="GTSH Engineering aus Saalfeld: Moderne Websites, Business Automation & lokale KI-Lösungen für KMU. DSGVO-konform. Transparente Preise ab 800€. Jetzt 15-Min Strategy Call buchen!" />
+    <meta name="keywords" content="KI Thüringen, Web-Development Saalfeld, Lokale KI Deutschland, Business Automation KMU, DSGVO-konforme KI, Webdesign Thüringen, KI-Schulungen" />
     <link rel="canonical" href="https://gtsh-engineering.de/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://gtsh-engineering.de/" />
-    <meta property="og:title" content="GTSH Engineering - Websites, Automation, Grafik & KI" />
-    <meta property="og:description" content="Lokale KI, moderne Websites, Automation & Grafikdesign für KMU in Thüringen. Keine US-Cloud. Transparente Preise ab 300€." />
+    <meta property="og:title" content="GTSH Engineering - Websites, Automation & KI" />
+    <meta property="og:description" content="Lokale KI, moderne Websites & Automation für KMU in Thüringen. Keine US-Cloud. Transparente Preise ab 800€." />
     <meta property="og:image" content="https://gtsh-engineering.de/og-image-1200x630.png" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="GTSH Engineering" />
@@ -21,8 +27,8 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://gtsh-engineering.de/" />
-    <meta name="twitter:title" content="GTSH Engineering - Websites, Automation, Grafik & KI" />
-    <meta name="twitter:description" content="Lokale KI, moderne Websites, Automation & Grafikdesign für KMU in Thüringen. DSGVO-konform." />
+    <meta name="twitter:title" content="GTSH Engineering - Websites, Automation & KI" />
+    <meta name="twitter:description" content="Lokale KI, moderne Websites & Automation für KMU in Thüringen. DSGVO-konform." />
     <meta name="twitter:image" content="https://gtsh-engineering.de/og-image-1200x630.png" />
     
     <!-- Schema.org Structured Data - LocalBusiness -->
@@ -31,11 +37,11 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "GTSH Engineering",
-      "description": "Websites, Business Automation, Grafikdesign und lokale KI-Lösungen für KMU in Thüringen. DSGVO-konform, transparent, lokal.",
+      "description": "Websites, Business Automation und lokale KI-Lösungen für KMU in Thüringen. DSGVO-konform, transparent, lokal.",
       "url": "https://gtsh-engineering.de",
-      "logo": "https://gtsh-engineering.de/logo.png",
+      "logo": "https://gtsh-engineering.de/logo.webp",
       "image": "https://gtsh-engineering.de/og-image-1200x630.png",
-      "priceRange": "300-12000 EUR",
+      "priceRange": "800-12000 EUR",
       "founder": {
         "@type": "Person",
         "name": "Randolf Hahn"
@@ -118,20 +124,6 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Grafikdesign",
-              "description": "Logo Design, Corporate Design, Social Media und Print."
-            },
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "price": "300",
-              "priceCurrency": "EUR",
-              "unitText": "ab"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
               "name": "Private AI Solutions",
               "description": "100% lokale KI-Modelle auf eigener Hardware. Keine Cloud, keine API-Kosten."
             },
@@ -167,7 +159,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH6XEQ4NMC"></script>
     <script>
     gtag('js', new Date());
-    gtag('config', 'G-RH6XEQ4NMC', { 'anonymize_ip': true });
+    gtag('config', 'G-RH6XEQ4NMC', { 'anonymize_ip': true, 'send_page_view': false });
     </script>
 
     <!-- Microsoft Clarity - loaded dynamically after consent, NOT here -->

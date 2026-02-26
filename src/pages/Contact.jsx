@@ -76,7 +76,7 @@ export default function Contact() {
       <link rel="canonical" href="https://gtsh-engineering.de/contact" />
 
       {/* Header */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-black/50 backdrop-blur-md border-b border-primary/30 text-white">
         <div className="container-custom text-center">
           <h1 className="mb-6">Kontakt & Erstgespräch</h1>
           <p className="text-xl max-w-3xl mx-auto">
@@ -124,7 +124,7 @@ export default function Contact() {
                 </svg>
               </div>
               <h3 className="mb-2 text-white">Standort</h3>
-              <p className="text-white/80 text-white/90">
+              <p className="text-white/90">
                 Saalfeld, Thüringen
               </p>
             </div>
@@ -139,7 +139,7 @@ export default function Contact() {
             {/* Calendly */}
             <div>
               <h2 className="mb-6 text-white">Termin buchen</h2>
-              <p className="text-white/90 text-white/90 mb-6">
+              <p className="text-white/90 mb-6">
                 Buchen Sie direkt einen 30-minütigen Termin für ein kostenloses Erstgespräch.
                 Wir besprechen Ihre Anforderungen und zeigen Ihnen konkrete Lösungswege.
               </p>
@@ -285,7 +285,7 @@ export default function Contact() {
                       required
                       className="mt-1 w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
                     />
-                    <span className="text-sm text-white/90 text-white/90">
+                    <span className="text-sm text-white/90">
                       Ich habe die <a href="/datenschutz" className="text-primary hover:underline">Datenschutzerklärung</a> gelesen 
                       und stimme der Verarbeitung meiner Daten zu. *
                     </span>

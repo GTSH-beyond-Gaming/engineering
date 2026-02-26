@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import FAQ from '../components/FAQ'
@@ -6,7 +7,7 @@ export default function Services() {
   const faqItems = [
     {
       question: 'Wie lange dauert die Entwicklung einer Website?',
-      answer: 'Eine Standard-Website dauert 4-6 Wochen von Konzept bis Launch. Landing Pages können bereits nach 1-2 Wochen live sein. E-Commerce-Projekte benötigen 8-12 Wochen.'
+      answer: 'Eine Standard-Website dauert 4-6 Wochen von Konzept bis Launch. Landing Pages können bereits nach 1-2 Wochen live sein. Komplexere Projekte mit Automation benötigen 8-12 Wochen.'
     },
     {
       question: 'Welche Zahlungsmodelle bieten Sie an?',
@@ -38,10 +39,35 @@ export default function Services() {
     }
   ]
 
+  // FAQ Schema JSON-LD
+  useEffect(() => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
+    }
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.text = JSON.stringify(schema)
+    script.id = 'faq-schema-services'
+    document.head.appendChild(script)
+    return () => {
+      const existing = document.getElementById('faq-schema-services')
+      if (existing) existing.remove()
+    }
+  }, [])
+
   return (
     <div>
       {/* Header */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-black/50 backdrop-blur-md border-b border-primary/30 text-white">
         <div className="container-custom text-center">
           <h1 className="mb-6">Unsere Leistungen</h1>
           <p className="text-xl max-w-3xl mx-auto">
@@ -56,7 +82,7 @@ export default function Services() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="mb-6 text-primary text-white">Web-Engineering</h2>
-            <p className="text-lg text-white/90 text-white/90 mb-8">
+            <p className="text-lg text-white/90 mb-8">
               Moderne Websites die nicht nur gut aussehen, sondern auch konvertieren.
               Wir nutzen cutting-edge Technologien wie React, Next.js und Tailwind CSS.
             </p>
@@ -64,10 +90,10 @@ export default function Services() {
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="card">
                 <h3 className="mb-3">Custom Websites</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   Maßgeschneiderte Websites mit React/Next.js. SEO-optimiert, schnell, modern.
                 </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+                <ul className="space-y-2 text-sm text-white/90 mb-4">
                   <li>✓ Responsive Design (Mobile-First)</li>
                   <li>✓ SEO-Optimierung</li>
                   <li>✓ Performance-optimiert (90+ Lighthouse Score)</li>
@@ -75,31 +101,15 @@ export default function Services() {
                   <li>✓ CMS-Integration (wenn gewünscht)</li>
                 </ul>
                 <p className="text-2xl font-bold text-primary">Ab €2.500</p>
-                <p className="text-sm text-white/80 text-white/60">Timeline: 4-6 Wochen</p>
-              </div>
-
-              <div className="card">
-                <h3 className="mb-3">E-Commerce</h3>
-                <p className="text-white/90 text-white/90 mb-4">
-                  Online-Shops die verkaufen. Von Produktkatalog bis Checkout.
-                </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
-                  <li>✓ Produktverwaltung</li>
-                  <li>✓ Payment-Integration (Stripe, PayPal)</li>
-                  <li>✓ Warenwirtschaft-Anbindung</li>
-                  <li>✓ Analytics & Tracking</li>
-                  <li>✓ Conversion-Optimierung</li>
-                </ul>
-                <p className="text-2xl font-bold text-primary">Ab €5.000</p>
-                <p className="text-sm text-white/80 text-white/60">Timeline: 8-12 Wochen</p>
+                <p className="text-sm text-white/60">Timeline: 4-6 Wochen</p>
               </div>
 
               <div className="card">
                 <h3 className="mb-3">Landing Pages</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   Conversion-optimierte Landing Pages für Ihre Kampagnen.
                 </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+                <ul className="space-y-2 text-sm text-white/90 mb-4">
                   <li>✓ A/B-Testing-ready</li>
                   <li>✓ Analytics-Integration</li>
                   <li>✓ Lead-Formulare</li>
@@ -107,15 +117,15 @@ export default function Services() {
                   <li>✓ Schnelle Delivery (1-2 Wochen)</li>
                 </ul>
                 <p className="text-2xl font-bold text-primary">Ab €800</p>
-                <p className="text-sm text-white/80 text-white/60">Timeline: 1-2 Wochen</p>
+                <p className="text-sm text-white/60">Timeline: 1-2 Wochen</p>
               </div>
 
               <div className="card">
                 <h3 className="mb-3">Wartung + Support</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   Laufende Betreuung Ihrer Website. Updates, Backups, Support.
                 </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+                <ul className="space-y-2 text-sm text-white/90 mb-4">
                   <li>✓ Monatliche Updates</li>
                   <li>✓ Security-Patches</li>
                   <li>✓ Performance-Monitoring</li>
@@ -123,7 +133,7 @@ export default function Services() {
                   <li>✓ Email-Support (24h Response)</li>
                 </ul>
                 <p className="text-2xl font-bold text-primary">€200/Monat</p>
-                <p className="text-sm text-white/80 text-white/60">Oder €2.000/Jahr (2 Monate gratis)</p>
+                <p className="text-sm text-white/60">Oder €2.000/Jahr (2 Monate gratis)</p>
               </div>
             </div>
           </div>
@@ -135,7 +145,7 @@ export default function Services() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="mb-6 text-white/80 text-white">Business Automation</h2>
-            <p className="text-lg text-white/90 text-white/90 mb-8">
+            <p className="text-lg text-white/90 mb-8">
               Sparen Sie bis zu 80% Ihrer Zeit durch intelligente Prozess-Automation.
               Von PowerShell-Scripts bis Python-Anwendungen.
             </p>
@@ -143,10 +153,10 @@ export default function Services() {
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="card">
                 <h3 className="mb-3">Prozess-Analyse</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   Wo verschwenden Sie Zeit? Wir analysieren Ihre Prozesse und finden Optimierungs-Potenzial.
                 </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+                <ul className="space-y-2 text-sm text-white/90 mb-4">
                   <li>✓ Workshop (2-4 Stunden)</li>
                   <li>✓ Prozess-Mapping</li>
                   <li>✓ Automation-Potential-Report</li>
@@ -154,15 +164,15 @@ export default function Services() {
                   <li>✓ Priorisierte Roadmap</li>
                 </ul>
                 <p className="text-2xl font-bold text-white/80">€800</p>
-                <p className="text-sm text-white/80 text-white/60">Wird bei Projekt-Buchung angerechnet</p>
+                <p className="text-sm text-white/60">Wird bei Projekt-Buchung angerechnet</p>
               </div>
 
               <div className="card">
                 <h3 className="mb-3">Automation-Implementation</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   Wir bauen die Automation für Sie. Von einfachen Scripts bis komplexen Workflows.
                 </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+                <ul className="space-y-2 text-sm text-white/90 mb-4">
                   <li>✓ PowerShell, Python, Node.js</li>
                   <li>✓ API-Integrationen</li>
                   <li>✓ Workflow-Automation (Zapier, n8n)</li>
@@ -170,15 +180,15 @@ export default function Services() {
                   <li>✓ Training (2h)</li>
                 </ul>
                 <p className="text-2xl font-bold text-white/80">Ab €1.500</p>
-                <p className="text-sm text-white/80 text-white/60">Je nach Komplexität</p>
+                <p className="text-sm text-white/60">Je nach Komplexität</p>
               </div>
 
               <div className="card">
                 <h3 className="mb-3">Email-Automation</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   AI sortiert, priorisiert und antwortet auf Emails. Sparen Sie 5h/Woche.
                 </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+                <ul className="space-y-2 text-sm text-white/90 mb-4">
                   <li>✓ Auto-Sorting (Gmail/Outlook)</li>
                   <li>✓ AI-gestützte Antworten</li>
                   <li>✓ Priority-Inbox</li>
@@ -186,15 +196,15 @@ export default function Services() {
                   <li>✓ Analytics</li>
                 </ul>
                 <p className="text-2xl font-bold text-white/80">€2.000</p>
-                <p className="text-sm text-white/80 text-white/60">Einmalig + €50/Monat AI-Kosten</p>
+                <p className="text-sm text-white/60">Einmalig + €50/Monat AI-Kosten</p>
               </div>
 
               <div className="card">
                 <h3 className="mb-3">Custom Integrations</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   Verbinden Sie Ihre Tools. CRM, ERP, Accounting - alles automatisch synchronisiert.
                 </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+                <ul className="space-y-2 text-sm text-white/90 mb-4">
                   <li>✓ API-Entwicklung</li>
                   <li>✓ Daten-Synchronisation</li>
                   <li>✓ Fehlerbehandlung</li>
@@ -202,7 +212,7 @@ export default function Services() {
                   <li>✓ Wartung (3 Monate inkl.)</li>
                 </ul>
                 <p className="text-2xl font-bold text-white/80">Ab €3.000</p>
-                <p className="text-sm text-white/80 text-white/60">Timeline: 4-8 Wochen</p>
+                <p className="text-sm text-white/60">Timeline: 4-8 Wochen</p>
               </div>
             </div>
           </div>
@@ -214,7 +224,7 @@ export default function Services() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="mb-6 text-primary text-white">E-Learning Plattformen</h2>
-            <p className="text-lg text-white/90 text-white/90 mb-8">
+            <p className="text-lg text-white/90 mb-8">
               Digitale Trainings-Plattformen die Ihre Mitarbeiter lieben werden.
               Gamification, Analytics, mobil-optimiert.
             </p>
@@ -223,7 +233,7 @@ export default function Services() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <h3 className="mb-4 text-white">Custom LMS</h3>
-                  <ul className="space-y-3 text-white/90 text-white/90">
+                  <ul className="space-y-3 text-white/90">
                     <li>✓ Kurs-Management</li>
                     <li>✓ User-Management</li>
                     <li>✓ Video-Integration</li>
@@ -240,12 +250,12 @@ export default function Services() {
                     <div>
                       <p className="font-semibold text-lg text-white">Basis-Plattform</p>
                       <p className="text-3xl font-bold text-primary dark:text-primary mb-2">€5.000</p>
-                      <p className="text-sm text-white/90 text-white/90">Setup + 5 Kurse</p>
+                      <p className="text-sm text-white/90">Setup + 5 Kurse</p>
                     </div>
                     <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
                       <p className="font-semibold text-lg text-white">Enterprise</p>
                       <p className="text-3xl font-bold text-primary dark:text-primary mb-2">Ab €12.000</p>
-                      <p className="text-sm text-white/90 text-white/90">Custom Features + Integration + Branding</p>
+                      <p className="text-sm text-white/90">Custom Features + Integration + Branding</p>
                     </div>
                   </div>
                 </div>
@@ -260,7 +270,7 @@ export default function Services() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="mb-6 text-white/80 text-white">Digital-Beratung</h2>
-            <p className="text-lg text-white/90 text-white/90 mb-8">
+            <p className="text-lg text-white/90 mb-8">
               Strategische Beratung für Ihre digitale Transformation.
               KI-Integration, Tech-Stack-Audit, Digitalisierungs-Roadmap.
             </p>
@@ -268,28 +278,28 @@ export default function Services() {
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="card">
                 <h3 className="mb-3">Stunden-Beratung</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   Flexible Beratung zu allen Digital-Themen. KI, Automation, Tech-Stack.
                 </p>
                 <p className="text-3xl font-bold text-white/80 mb-2">€150/Stunde</p>
-                <p className="text-sm text-white/80 text-white/60">Min. 2 Stunden</p>
+                <p className="text-sm text-white/60">Min. 2 Stunden</p>
               </div>
 
               <div className="card">
                 <h3 className="mb-3">Workshop (Ganztag)</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   Intensiv-Workshop mit Ihrem Team. Digitalisierung, KI-Strategie, Prozess-Optimierung.
                 </p>
                 <p className="text-3xl font-bold text-white/80 mb-2">€1.200/Tag</p>
-                <p className="text-sm text-white/80 text-white/60">Inkl. Follow-Up-Call</p>
+                <p className="text-sm text-white/60">Inkl. Follow-Up-Call</p>
               </div>
 
               <div className="card">
                 <h3 className="mb-3">Tech-Stack-Audit</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   Welche Tools brauchen Sie wirklich? Wo verschwenden Sie Geld?
                 </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+                <ul className="space-y-2 text-sm text-white/90 mb-4">
                   <li>✓ Tool-Analyse (2-4h)</li>
                   <li>✓ Kosten-Optimierung</li>
                   <li>✓ Empfehlungen</li>
@@ -300,10 +310,10 @@ export default function Services() {
 
               <div className="card">
                 <h3 className="mb-3">Digitalisierungs-Roadmap</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   6-12 Monate Plan für Ihre digitale Transformation.
                 </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+                <ul className="space-y-2 text-sm text-white/90 mb-4">
                   <li>✓ IST-Analyse</li>
                   <li>✓ Ziel-Definition</li>
                   <li>✓ Priorisierte Roadmap</li>
@@ -353,7 +363,7 @@ export default function Services() {
               <h2 className="text-white/80 text-white">Private AI Solutions</h2>
               <span className="bg-secondary text-white text-xs px-3 py-1 rounded-full font-semibold">NEU!</span>
             </div>
-            <p className="text-lg text-white/90 text-white/90 mb-8">
+            <p className="text-lg text-white/90 mb-8">
               KI-Modelle die 100% lokal auf IHRER Hardware laufen. Keine Cloud. Keine API-Kosten. Maximale Privatsphäre.
             </p>
 
@@ -371,17 +381,17 @@ export default function Services() {
                   </svg>
                 </div>
                 <h3 className="mb-3">Lokale LLM-Installation</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   Wir richten leistungsstarke KI-Modelle auf Ihrer eigenen Hardware ein. Bis zu 70B Parameter, lokal und sicher.
                 </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+                <ul className="space-y-2 text-sm text-white/90 mb-4">
                   <li>✓ Lokale LLMs (bis 70B Parameter)</li>
                   <li>✓ Hardware-Beratung & Setup</li>
                   <li>✓ Keine Daten verlassen Ihr Netzwerk</li>
                   <li>✓ 61 tok/s auf eigener Hardware</li>
                 </ul>
                 <p className="text-2xl font-bold text-white/80">Ab €3.000</p>
-                <p className="text-sm text-white/80 text-white/60">Einmaliges Setup</p>
+                <p className="text-sm text-white/60">Einmaliges Setup</p>
               </motion.div>
 
               <motion.div
@@ -397,26 +407,26 @@ export default function Services() {
                   </svg>
                 </div>
                 <h3 className="mb-3">Discord / WhatsApp Bots</h3>
-                <p className="text-white/90 text-white/90 mb-4">
+                <p className="text-white/90 mb-4">
                   Intelligente Bots die lokal laufen. Kundenservice, interne Kommunikation, Automation.
                 </p>
-                <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
+                <ul className="space-y-2 text-sm text-white/90 mb-4">
                   <li>✓ Discord-Bot mit lokalem LLM</li>
                   <li>✓ WhatsApp Business Integration</li>
                   <li>✓ Custom Training auf Ihre Daten</li>
                   <li>✓ €0 laufende API-Kosten</li>
                 </ul>
                 <p className="text-2xl font-bold text-white/80">Ab €2.000</p>
-                <p className="text-sm text-white/80 text-white/60">+ optional: Wartung €200/Monat</p>
+                <p className="text-sm text-white/60">+ optional: Wartung €200/Monat</p>
               </motion.div>
             </div>
 
             <div className="card bg-gradient-to-br from-secondary/10 to-primary/10 border-2 border-secondary/30 text-center">
-              <p className="text-lg text-white/90 text-white/90 mb-2">
+              <p className="text-lg text-white/90 mb-2">
                 <strong>100% DSGVO-konform</strong> - Keine Daten verlassen Deutschland.
               </p>
-              <p className="text-white/80 text-white/60">
-                Eigene RTX 5090 Infrastruktur. Keine US-Cloud. Keine laufenden API-Kosten.
+              <p className="text-white/60">
+                Eigene GPU-Infrastruktur. Keine US-Cloud. Keine laufenden API-Kosten.
               </p>
             </div>
           </div>
@@ -427,15 +437,15 @@ export default function Services() {
       <section className="section bg-transparent">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-center mb-4 text-gray-900 text-white">
+            <h2 className="text-center mb-4 text-white">
               Häufige Fragen
             </h2>
-            <p className="text-center text-white/80 text-white/60 mb-12">
+            <p className="text-center text-white/60 mb-12">
               Alles was Sie über unsere Leistungen wissen müssen
             </p>
             <FAQ items={faqItems} />
             <div className="text-center mt-12">
-              <p className="text-white/80 text-white/60 mb-4">
+              <p className="text-white/60 mb-4">
                 Haben Sie weitere Fragen?
               </p>
               <Link to="/contact" className="btn-primary">
@@ -447,7 +457,7 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-black/50 backdrop-blur-md border-b border-primary/30 text-white">
         <div className="container-custom text-center">
           <h2 className="mb-6">Bereit loszulegen?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">

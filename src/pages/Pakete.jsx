@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Check, X, ChevronDown, Rocket, TrendingUp, Building2, Phone } from 'lucide-react'
@@ -7,94 +7,76 @@ import FAQ from '../components/FAQ'
 const packages = [
   {
     name: 'STARTER-PAKET',
-    price: '3.500',
-    originalPrice: '4.100',
-    savings: '15%',
+    price: '2.400',
+    originalPrice: '2.900',
+    savings: '17%',
     color: 'primary',
     popular: false,
     idealFor: 'Gründer & Freelancer',
     items: [
       { name: 'Landing Page', value: '€800' },
-      { name: 'Logo Design', value: '€800' },
-      { name: 'Social Media Bundle', value: '€300' },
       { name: 'KI-Basics Workshop', value: '€800' },
+      { name: 'Basic Automation Setup', value: '€800' },
     ],
     extras: ['3 Monate Wartung gratis'],
     icon: Rocket,
     features: {
       landingPage: true,
       customWebsite: false,
-      ecommerce: false,
-      logoDesign: true,
-      brandIdentity: false,
-      socialMedia: true,
       kiWorkshop: 'Basics (4h)',
       aiChatbot: false,
-      automationPaket: false,
+      automationPaket: 'Basic',
       privateAi: false,
-      grafikFlatrate: false,
       wartung: '3 Monate',
     },
   },
   {
     name: 'GROWTH-PAKET',
-    price: '6.500',
-    originalPrice: '8.000',
-    savings: '30%',
+    price: '5.500',
+    originalPrice: '6.800',
+    savings: '19%',
     color: 'secondary',
     popular: true,
     idealFor: 'Wachsende KMU',
     items: [
       { name: 'Custom Website', value: '€2.500' },
-      { name: 'Brand Identity Premium', value: '€2.500' },
-      { name: 'AI Chatbot', value: '€2.000' },
       { name: 'KI-Workshop für Team', value: '€1.500' },
+      { name: 'AI Chatbot', value: '€2.000' },
     ],
-    extras: ['6 Monate Wartung gratis'],
+    extras: ['6 Monate Wartung gratis', 'Follow-Up Support'],
     icon: TrendingUp,
     features: {
       landingPage: false,
       customWebsite: true,
-      ecommerce: false,
-      logoDesign: true,
-      brandIdentity: true,
-      socialMedia: false,
       kiWorkshop: 'Team (8h)',
       aiChatbot: true,
       automationPaket: false,
       privateAi: false,
-      grafikFlatrate: false,
       wartung: '6 Monate',
     },
   },
   {
     name: 'SCALE-PAKET',
-    price: '12.000',
-    originalPrice: '15.000',
-    savings: '36%',
+    price: '9.000',
+    originalPrice: '11.500',
+    savings: '22%',
     color: 'primary',
     popular: false,
     idealFor: 'Etablierte Unternehmen',
     items: [
-      { name: 'E-Commerce Shop', value: '€5.000' },
-      { name: 'Automation-Paket', value: '€3.000' },
+      { name: 'Custom Website', value: '€2.500' },
       { name: 'Private AI Setup', value: '€3.000' },
-      { name: 'Brand Identity Premium', value: '€2.500' },
+      { name: 'Business Automation', value: '€3.000' },
     ],
-    extras: ['3 Monate Grafik-Flatrate', '12 Monate Wartung gratis'],
+    extras: ['12 Monate Wartung gratis', 'Priority Support'],
     icon: Building2,
     features: {
       landingPage: false,
-      customWebsite: false,
-      ecommerce: true,
-      logoDesign: true,
-      brandIdentity: true,
-      socialMedia: false,
+      customWebsite: true,
       kiWorkshop: false,
       aiChatbot: false,
-      automationPaket: true,
+      automationPaket: 'Full',
       privateAi: true,
-      grafikFlatrate: '3 Monate',
       wartung: '12 Monate',
     },
   },
@@ -103,15 +85,10 @@ const packages = [
 const comparisonRows = [
   { label: 'Landing Page', key: 'landingPage' },
   { label: 'Custom Website', key: 'customWebsite' },
-  { label: 'E-Commerce Shop', key: 'ecommerce' },
-  { label: 'Logo Design', key: 'logoDesign' },
-  { label: 'Brand Identity Premium', key: 'brandIdentity' },
-  { label: 'Social Media Bundle', key: 'socialMedia' },
   { label: 'KI-Workshop', key: 'kiWorkshop' },
   { label: 'AI Chatbot', key: 'aiChatbot' },
   { label: 'Automation-Paket', key: 'automationPaket' },
   { label: 'Private AI Setup', key: 'privateAi' },
-  { label: 'Grafik-Flatrate', key: 'grafikFlatrate' },
   { label: 'Wartung gratis', key: 'wartung' },
 ]
 
@@ -129,7 +106,7 @@ const faqItems = [
   {
     question: 'Wie lange dauert die Umsetzung eines Pakets?',
     answer:
-      'Das STARTER-PAKET ist in 3-4 Wochen umsetzbar. Das GROWTH-PAKET benötigt 6-8 Wochen. Für das SCALE-PAKET planen wir 10-14 Wochen ein. Genaue Timelines besprechen wir im Kick-off.',
+      'Das STARTER-PAKET ist in 2-3 Wochen umsetzbar. Das GROWTH-PAKET benötigt 4-6 Wochen. Für das SCALE-PAKET planen wir 6-10 Wochen ein. Genaue Timelines besprechen wir im Kick-off.',
   },
   {
     question: 'Was passiert nach Ablauf der kostenlosen Wartung?',
@@ -139,7 +116,7 @@ const faqItems = [
   {
     question: 'Sind die Preise verhandelbar?',
     answer:
-      'Die Paket-Preise sind bereits stark reduziert (bis zu 36% Ersparnis). Für Non-Profits und Startups in der Gründungsphase bieten wir jedoch zusätzliche Sonderkonditionen. Sprechen Sie uns an!',
+      'Die Paket-Preise sind bereits reduziert (bis zu 22% Ersparnis). Für Non-Profits und Startups in der Gründungsphase bieten wir jedoch zusätzliche Sonderkonditionen. Sprechen Sie uns an!',
   },
 ]
 
@@ -160,6 +137,31 @@ const fadeInUp = {
 export default function Pakete() {
   const [showComparison, setShowComparison] = useState(false)
 
+  // FAQ Schema JSON-LD
+  useEffect(() => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
+    }
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.text = JSON.stringify(schema)
+    script.id = 'faq-schema-pakete'
+    document.head.appendChild(script)
+    return () => {
+      const existing = document.getElementById('faq-schema-pakete')
+      if (existing) existing.remove()
+    }
+  }, [])
+
   const renderFeatureValue = (value) => {
     if (value === true) {
       return <Check className="w-5 h-5 text-green-500 mx-auto" />
@@ -168,7 +170,7 @@ export default function Pakete() {
       return <X className="w-5 h-5 text-gray-300 text-white/80 mx-auto" />
     }
     return (
-      <span className="text-sm font-medium text-white/90 text-white/90">
+      <span className="text-sm font-medium text-white/90">
         {value}
       </span>
     )
@@ -176,15 +178,15 @@ export default function Pakete() {
 
   return (
     <div>
-      <title>Pakete &amp; Preise - Bis zu 36% sparen | GTSH Engineering</title>
+      <title>Pakete &amp; Preise - Bis zu 22% sparen | GTSH Engineering</title>
       <meta
         name="description"
-        content="Service-Pakete von GTSH Engineering: Starter ab €3.500, Growth ab €6.500, Scale ab €12.000. Bis zu 36% sparen mit gebündelten Leistungen. Web, KI, Automation & Design."
+        content="Service-Pakete von GTSH Engineering: Starter ab €2.400, Growth ab €5.500, Scale ab €9.000. Bis zu 22% sparen mit gebündelten Leistungen. Web, KI & Automation."
       />
       <link rel="canonical" href="https://gtsh-engineering.de/pakete" />
 
       {/* Hero / Header */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-black/50 backdrop-blur-md border-b border-primary/30 text-white">
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -192,12 +194,12 @@ export default function Pakete() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block bg-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full mb-6">
-              Bis zu 36% Ersparnis gegenueber Einzelbuchung
+              Bis zu 22% Ersparnis gegenüber Einzelbuchung
             </span>
-            <h1 className="mb-6">Service-Pakete mit bis zu 36% Ersparnis</h1>
+            <h1 className="mb-6">Service-Pakete für Ihr digitales Wachstum</h1>
             <p className="text-xl max-w-3xl mx-auto opacity-90">
-              Kombinieren Sie Web-Development, KI-Integration, Automation und Design
-              in einem Paket - und sparen Sie dabei bares Geld.
+              Kombinieren Sie Web-Development, KI-Integration und Automation
+              in einem Paket — und sparen Sie dabei bares Geld.
             </p>
           </motion.div>
         </div>
@@ -214,10 +216,10 @@ export default function Pakete() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="mb-4 text-gray-900 text-white">
+              <h2 className="mb-4 text-white">
                 Drei Pakete. Ein Ziel: Ihr digitaler Erfolg.
               </h2>
-              <p className="text-lg text-white/80 text-white/90 max-w-2xl mx-auto">
+              <p className="text-lg text-white/90 max-w-2xl mx-auto">
                 Jedes Paket ist auf eine bestimmte Unternehmensphase zugeschnitten.
                 Alle Preise netto zzgl. MwSt.
               </p>
@@ -261,14 +263,14 @@ export default function Pakete() {
                         {pkg.name}
                       </h3>
                       <p className="text-sm text-white/70 line-through">
-                        &euro;{pkg.originalPrice}
+                        €{pkg.originalPrice}
                       </p>
                       <p
                         className={`text-4xl font-bold ${
                           pkg.popular ? 'text-white/80' : 'text-primary'
                         }`}
                       >
-                        &euro;{pkg.price}
+                        €{pkg.price}
                       </p>
                       <span className="inline-block bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-sm font-semibold px-3 py-1 rounded-full mt-2">
                         {pkg.savings} Ersparnis
@@ -276,7 +278,7 @@ export default function Pakete() {
                     </div>
 
                     {/* Included Items */}
-                    <ul className="space-y-3 text-white/90 text-white/90 mb-4 flex-grow">
+                    <ul className="space-y-3 text-white/90 mb-4 flex-grow">
                       {pkg.items.map((item) => (
                         <li key={item.name} className="flex items-start gap-2">
                           <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -298,9 +300,9 @@ export default function Pakete() {
 
                     {/* Ideal for */}
                     <div className="border-t border-gray-200 dark:border-gray-600 pt-4 mb-6">
-                      <p className="text-sm text-white/70 text-white/60">
+                      <p className="text-sm text-white/60">
                         Ideal für:{' '}
-                        <span className="font-semibold text-white/90 text-white/90">
+                        <span className="font-semibold text-white/90">
                           {pkg.idealFor}
                         </span>
                       </p>
@@ -334,15 +336,15 @@ export default function Pakete() {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <h2 className="mb-4 text-gray-900 text-white">
+              <h2 className="mb-4 text-white">
                 Was ist enthalten?
               </h2>
-              <p className="text-lg text-white/80 text-white/90 mb-6">
+              <p className="text-lg text-white/90 mb-6">
                 Detaillierter Vergleich aller Pakete auf einen Blick.
               </p>
               <button
                 onClick={() => setShowComparison(!showComparison)}
-                className="inline-flex items-center gap-2 text-primary text-white/80 font-semibold hover:underline"
+                className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
               >
                 {showComparison
                   ? 'Vergleich ausblenden'
@@ -365,7 +367,7 @@ export default function Pakete() {
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="border-b-2 border-gray-200 dark:border-gray-600">
-                      <th className="text-left py-4 px-4 text-white/90 text-white/90 font-semibold">
+                      <th className="text-left py-4 px-4 text-white/90 font-semibold">
                         Leistung
                       </th>
                       {packages.map((pkg) => (
@@ -374,7 +376,7 @@ export default function Pakete() {
                           className={`text-center py-4 px-4 font-bold ${
                             pkg.popular
                               ? 'text-white/80'
-                              : 'text-gray-900 text-white'
+                              : 'text-white'
                           }`}
                         >
                           <div>{pkg.name.replace('-PAKET', '')}</div>
@@ -383,7 +385,7 @@ export default function Pakete() {
                               pkg.popular ? 'text-white/80' : 'text-primary'
                             }`}
                           >
-                            &euro;{pkg.price}
+                            €{pkg.price}
                           </div>
                         </th>
                       ))}
@@ -399,7 +401,7 @@ export default function Pakete() {
                             : 'bg-transparent'
                         }`}
                       >
-                        <td className="py-3 px-4 text-white/90 text-white/90 font-medium">
+                        <td className="py-3 px-4 text-white/90 font-medium">
                           {row.label}
                         </td>
                         {packages.map((pkg) => (
@@ -431,7 +433,7 @@ export default function Pakete() {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <h2 className="mb-4 text-gray-900 text-white">
+              <h2 className="mb-4 text-white">
                 Warum ein Paket statt Einzelbuchung?
               </h2>
             </motion.div>
@@ -450,9 +452,9 @@ export default function Pakete() {
                   </span>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-white">
-                  Bis zu 36% sparen
+                  Bis zu 22% sparen
                 </h3>
-                <p className="text-white/80 text-white/90">
+                <p className="text-white/90">
                   Gebündelte Leistungen bedeuten weniger Overhead und bessere Preise
                   für Sie. Je größer das Paket, desto höher die Ersparnis.
                 </p>
@@ -473,7 +475,7 @@ export default function Pakete() {
                 <h3 className="text-xl font-bold mb-3 text-white">
                   Ein Ansprechpartner
                 </h3>
-                <p className="text-white/80 text-white/90">
+                <p className="text-white/90">
                   Kein Abstimmungs-Chaos zwischen Agenturen. Alles aus einer Hand,
                   alles perfekt aufeinander abgestimmt.
                 </p>
@@ -488,14 +490,14 @@ export default function Pakete() {
               >
                 <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl font-bold text-purple-600 dark:text-purple-400">
-                    &infin;
+                    ∞
                   </span>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-white">
                   Konsistentes Ergebnis
                 </h3>
-                <p className="text-white/80 text-white/90">
-                  Website, Branding und KI-Integration greifen nahtlos ineinander.
+                <p className="text-white/90">
+                  Website, KI-Integration und Automation greifen nahtlos ineinander.
                   Das Ergebnis ist ein stimmiges Gesamtbild.
                 </p>
               </motion.div>
@@ -515,10 +517,10 @@ export default function Pakete() {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <h2 className="mb-4 text-gray-900 text-white">
+              <h2 className="mb-4 text-white">
                 Häufige Fragen zu unseren Paketen
               </h2>
-              <p className="text-white/80 text-white/60">
+              <p className="text-white/60">
                 Alles was Sie über unsere Service-Pakete wissen müssen
               </p>
             </motion.div>
@@ -526,7 +528,7 @@ export default function Pakete() {
             <FAQ items={faqItems} />
 
             <div className="text-center mt-12">
-              <p className="text-white/80 text-white/60 mb-4">
+              <p className="text-white/60 mb-4">
                 Haben Sie weitere Fragen?
               </p>
               <Link to="/contact" className="btn-primary">
@@ -538,7 +540,7 @@ export default function Pakete() {
       </section>
 
       {/* CTA */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-black/50 backdrop-blur-md border-b border-primary/30 text-white">
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -561,6 +563,3 @@ export default function Pakete() {
     </div>
   )
 }
-
-
-

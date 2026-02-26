@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ExternalLink, Star, Globe, Cpu, Palette, Gamepad2, Music, Zap } from 'lucide-react'
+import { ExternalLink, Star, Globe, Zap } from 'lucide-react'
 
 const projects = [
   {
@@ -25,29 +25,7 @@ const projects = [
     results: [
       { label: 'Google Reviews', value: '5.0/5', icon: Star },
       { label: 'Performance', value: '90+', icon: Zap },
-      { label: 'Bewertungen', value: '11', icon: Star },
-    ],
-  },
-  {
-    id: 'kunde-b',
-    title: 'Bühnen- & Veranstaltungstechnik',
-    subtitle: 'Ingenieur-Website',
-    url: '#',
-    status: 'IN ARBEIT',
-    statusColor: 'yellow',
-    description: 'Website für einen Ingenieur im Bereich Theaterbühnen und Veranstaltungstechnik. Technisch-professionelles Design, Referenzprojekte und Leistungsübersicht.',
-    screenshot: '/images/portfolio/kunde-b-preview.jpg',
-    techStack: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
-    highlights: [
-      'Technisch-professionelles Design',
-      'Responsive Mobile-First Umsetzung',
-      'SEO-optimiert für lokale Suche',
-      'Kontaktformular & Terminbuchung',
-      'DSGVO-konform',
-    ],
-    results: [
-      { label: 'Branche', value: 'Bühnenbau', icon: Globe },
-      { label: 'Launch', value: 'Q1 2026', icon: Cpu },
+      { label: 'Bewertungen', value: '12', icon: Star },
     ],
   },
 ]
@@ -60,7 +38,7 @@ export default function Portfolio() {
       <link rel="canonical" href="https://gtsh-engineering.de/portfolio" />
 
       {/* Header */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-black/50 backdrop-blur-md border-b border-primary/30 text-white">
         <div className="container-custom text-center">
           <h1 className="mb-6">Unsere Projekte & Referenzen</h1>
           <p className="text-xl max-w-3xl mx-auto">
@@ -124,21 +102,26 @@ export default function Portfolio() {
 
               {/* Screenshot Area */}
               <div className="relative bg-transparent overflow-hidden" style={{ minHeight: '300px' }}>
-                <img
-                  src={project.screenshot}
-                  alt={`${project.title} Website Screenshot`}
-                  className="w-full h-auto"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.target.style.display = 'none'
-                    e.target.nextElementSibling.style.display = 'flex'
-                  }}
-                />
-                {/* Fallback Gradient */}
-                <div className="hidden items-center justify-center h-64 bg-gradient-to-br from-primary/20 to-secondary/20">
+                {project.screenshot ? (
+                  <img
+                    src={project.screenshot}
+                    alt={`${project.title} Website Screenshot`}
+                    className="w-full h-auto"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.target.style.display = 'none'
+                      e.target.nextElementSibling.style.display = 'flex'
+                    }}
+                  />
+                ) : null}
+                {/* Fallback Gradient - shows when no screenshot or on error */}
+                <div className={`${project.screenshot ? 'hidden' : 'flex'} items-center justify-center h-64 bg-gradient-to-br from-primary/20 via-primary/10 to-secondary/20`}>
                   <div className="text-center">
-                    <Globe className="w-16 h-16 text-white/60 mx-auto mb-4" />
-                    <p className="text-white/70 text-white/60">Screenshot kommt bald</p>
+                    <div className="w-20 h-20 bg-primary/20 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                      <Globe className="w-10 h-10 text-primary/60" />
+                    </div>
+                    <p className="text-white/80 font-semibold mb-1">Coming Soon</p>
+                    <p className="text-white/50 text-sm">Screenshot folgt nach Launch</p>
                   </div>
                 </div>
 
@@ -169,13 +152,13 @@ export default function Portfolio() {
                 className="card"
               >
                 <h2 className="text-2xl font-bold mb-1 text-white">{project.title}</h2>
-                <p className="text-primary text-white/80 font-medium mb-4">{project.subtitle}</p>
-                <p className="text-white/80 text-white/90 mb-6">{project.description}</p>
+                <p className="text-primary font-medium mb-4">{project.subtitle}</p>
+                <p className="text-white/90 mb-6">{project.description}</p>
 
                 <h4 className="font-semibold mb-3 text-white">Highlights:</h4>
                 <ul className="space-y-2 mb-6">
                   {project.highlights.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-white/80 text-white/90">
+                    <li key={i} className="flex items-start gap-2 text-white/90">
                       <span className="text-green-500 mt-0.5">✓</span>
                       {item}
                     </li>
@@ -185,7 +168,7 @@ export default function Portfolio() {
                 <h4 className="font-semibold mb-3 text-white">Tech-Stack:</h4>
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.map((tech) => (
-                    <span key={tech} className="px-3 py-1 rounded-full bg-transparent text-white/90 text-white/90 text-sm font-medium">
+                    <span key={tech} className="px-3 py-1 rounded-full bg-transparent text-white/90 text-sm font-medium">
                       {tech}
                     </span>
                   ))}
@@ -207,10 +190,10 @@ export default function Portfolio() {
                       const Icon = result.icon
                       return (
                         <div key={i} className="flex items-center gap-3">
-                          <Icon className="w-5 h-5 text-primary text-white/80" />
+                          <Icon className="w-5 h-5 text-primary" />
                           <div>
-                            <div className="text-2xl font-bold text-gray-900 text-white">{result.value}</div>
-                            <p className="text-sm text-white/80 text-white/60">{result.label}</p>
+                            <div className="text-2xl font-bold text-white">{result.value}</div>
+                            <p className="text-sm text-white/60">{result.label}</p>
                           </div>
                         </div>
                       )
@@ -231,8 +214,8 @@ export default function Portfolio() {
                   </a>
                 ) : (
                   <div className="card border-2 border-dashed border-yellow-400/50 text-center">
-                    <p className="text-white/80 text-white/90">
-                      Launch geplant: <strong>Ende Februar 2026</strong>
+                    <p className="text-white/90">
+                      Launch geplant: <strong>März 2026</strong>
                     </p>
                   </div>
                 )}
@@ -242,7 +225,7 @@ export default function Portfolio() {
         </section>
       ))}
 
-      {/* More Coming Soon */}
+      {/* AI-Bildgenerierung Showcase */}
       <section className="section bg-transparent">
         <div className="container-custom max-w-4xl text-center">
           <motion.div
@@ -250,28 +233,45 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-6 text-white">Weitere Projekte folgen</h2>
-            <p className="text-lg text-white/80 text-white/90 mb-8">
-              Wir arbeiten kontinuierlich an neuen Projekten. Jedes wird hier präsentiert –
-              mit echten Resultaten, nicht mit Mockups.
+            <h2 className="mb-6 text-white">KI-Bildgenerierung</h2>
+            <p className="text-lg text-white/90 mb-8">
+              Photorealistische Bilder für Marketing, Produktfotos und Content – 
+              generiert mit unserer lokalen KI-Infrastruktur. Keine Cloud, keine Wartezeiten.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
-              {['KMU Website', 'Automation Suite', 'KI-Integration'].map((title, i) => (
-                <div key={i} className="card border-2 border-dashed border-gray-300 dark:border-gray-600">
-                  <div className="w-12 h-12 bg-gray-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-2xl">{['🏗️', '⚙️', '🤖'][i]}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2 text-white">{title}</h3>
-                  <p className="text-sm text-white/70 text-white/60">Coming Soon</p>
+              <div className="card hover:shadow-glow transition-all">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">📸</span>
                 </div>
-              ))}
+                <h3 className="text-lg font-semibold mb-2 text-white">Produktfotos</h3>
+                <p className="text-sm text-white/60">Hochwertige Produktbilder ohne Fotoshooting</p>
+              </div>
+              <div className="card hover:shadow-glow transition-all">
+                <div className="w-12 h-12 bg-gradient-to-br from-secondary to-primary rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">🎨</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-white">Marketing-Visuals</h3>
+                <p className="text-sm text-white/60">Social Media, Ads, Banner – alles aus einer Hand</p>
+              </div>
+              <div className="card hover:shadow-glow transition-all">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-brand-blue rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">🖼️</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-white">Custom Content</h3>
+                <p className="text-sm text-white/60">Einzigartige Bilder nach Ihren Vorgaben</p>
+              </div>
+            </div>
+            <div className="mt-8">
+              <Link to="/grafikdesign" className="btn-primary">
+                Mehr über AI-Bildgenerierung →
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-black/50 backdrop-blur-md border-b border-primary/30 text-white">
         <div className="container-custom text-center">
           <h2 className="mb-6">Ihr Projekt könnte das nächste sein!</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">

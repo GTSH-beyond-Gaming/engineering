@@ -4,6 +4,23 @@
    Datum: 2026-02-25
    ============================================ */
 
+/* Inter Font - Lokal gehostet (DSGVO) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter/inter-v13-latin-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter/inter-v13-latin-700.woff2') format('woff2');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,7 +29,7 @@
   /* GTSH Transparent Theme - Fixed Background */
   body {
     @apply text-white;
-    background-image: url('/hero-background.png');
+    background-image: url('/hero-background.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -40,7 +57,7 @@
 @layer components {
   /* Buttons - Jetzt Orange! */
   .btn-primary {
-    @apply bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-glow;
+    @apply bg-[#E65100] hover:bg-[#BF360C] text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-glow;
   }
   
   .btn-secondary {

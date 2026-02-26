@@ -1,6 +1,11 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
 
 export default function About() {
+  const [showFullStory, setShowFullStory] = useState(false)
+  
   return (
     <div>
       <title>Über Uns - Randolf Hahn & GTSH Engineering | Saalfeld, Thüringen</title>
@@ -8,7 +13,7 @@ export default function About() {
       <link rel="canonical" href="https://gtsh-engineering.de/about" />
 
       {/* Header */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-black/50 backdrop-blur-md border-b border-primary/30 text-white">
         <div className="container-custom text-center">
           <h1 className="mb-6">GTSH Engineering - Vom Handwerk zur digitalen Transformation</h1>
           <p className="text-xl max-w-3xl mx-auto">
@@ -22,57 +27,74 @@ export default function About() {
         <div className="container-custom max-w-4xl">
           <h2 className="mb-6 text-white">Vom Fundament zum Code</h2>
           <div className="prose prose-lg dark:prose-invert">
-            <p className="text-lg text-white/90 text-white/90 mb-4">
-              <strong>Bevor ich Code schrieb, lernte ich, wie man Stein bricht.</strong> 2001, Rudolstadt. Ich war 16 und stand in einer Baugrube, die das Fundament für einen Fahrstuhlschacht werden sollte. Kubikmeter um Kubikmeter – achtzig Prozent davon massiver Fels. Drei Jahre Ausbildung zum Maurer, drei Jahre Kampf gegen das Material. Kurz vor dem Ziel kam der härteste Schlag – und der kam nicht vom Stein: Jemand aus meinem direkten Umfeld versuchte, mir den Abschluss zu sabotieren. Systematisches Gerede hinter meinem Rücken. Das Ziel war klar: Ich sollte scheitern. Ich habe die Ausbildung trotzdem gut abgeschlossen. <strong>Ein Fundament entsteht nicht durch Glück, sondern durch Beständigkeit – besonders wenn der Boden hart ist wie Eisen.</strong>
+            {/* Kurzversion - immer sichtbar */}
+            <p className="text-lg text-white/90 mb-4">
+              <strong>Bevor ich Code schrieb, lernte ich, wie man Stein bricht.</strong> Maurer, Bundeswehr, Kfz-Mechatroniker, Industriekletterer in der Windkraft, heute Medizintechnik. 20 Jahre Praxiserfahrung in harten Branchen — vom Fundament einer Baustelle bis zur Präzision der Robotik.
             </p>
-
-            <hr className="my-8 border-gray-200 dark:border-gray-700" />
-
-            <p className="text-lg text-white/90 text-white/90 mb-4">
-              <strong>Disziplin ist keine Frage der Situation, sondern des Charakters.</strong> 2004 ging ich zur Bundeswehr – als Krisenreaktionskraft in die Heeresfliegerblockausbildung. Eine erweiterte Grundausbildung, die dich an deine Grenzen bringt. Bei einer Flussüberquerung in voller Ausrüstung sah ich, wie Kameraden am Limit waren. Also nahm ich ihnen das Gepäck ab und brachte es selbst durch – damit alle sicher ans andere Ufer kamen. Sportliche Leistungen und Schießergebnisse auf sehr gutem Niveau. Aber die echte Belohnung war nicht der LKW-Führerschein oder der Flug im Helikopter über die verschneiten Pyrenäen – es waren die Tränen der Kameraden bei meinem Abschied. <strong>Auf diesen Mann ist Verlass. Das war der Ruf, den ich mir verdient habe.</strong>
+            
+            <p className="text-lg text-white/90 mb-4">
+              <strong>Ich bin kein klassischer Entwickler — ich bin ein Schnelllerner mit Praxishärte.</strong> Seit 2022 baue ich mit GTSH Custom-PCs (11 Fünf-Sterne-Bewertungen). Ende 2025 kam der nächste Schritt: Programmieren. Nicht als Hobby, sondern als Werkzeug für echte Probleme.
             </p>
-
-            <hr className="my-8 border-gray-200 dark:border-gray-700" />
-
-            <p className="text-lg text-white/90 text-white/90 mb-4">
-              <strong>Nicht jeder Arbeitgeber verdient deinen vollen Einsatz – aber du gibst ihn trotzdem.</strong> Parallel zur Bundeswehr machte ich meine zweite Ausbildung: Kfz-Mechatroniker. Danach anderthalb Jahre im Beruf. Ich habe schnell gelernt, dass Einsatz nicht automatisch belohnt wird. Chefs, die sich teure Autos gönnten, während Lehrlinge auf ihre Vergütung warten mussten. Unternehmen, die insolvent gingen. Werkstätten, in denen du die Arbeit von drei Leuten erledigst und bei der Frage nach fairer Bezahlung ein trockenes Nein bekommst. Ich habe keine Szene gemacht. Ich habe die Konsequenz gezogen und gewechselt. <strong>Wer seinen eigenen Wert kennt, bleibt nicht dort, wo er nicht gesehen wird.</strong>
-            </p>
-
-            <hr className="my-8 border-gray-200 dark:border-gray-700" />
-
-            <p className="text-lg text-white/90 text-white/90 mb-4">
-              <strong>160 Meter über dem Abgrund lernst du, wer du wirklich bist.</strong> 2012 wechselte ich in die Windkraft – als Industriekletterer. Fünf Jahre in der Höhe. Eines Tages waren wir oben in der Gondel einer Windkraftanlage, als das Wetter kippte. Ein Gewitter, das in Minuten von Regen zu Hagel eskalierte. Die Luft knisterte, das Metall summte, und Eis hämmerte gegen das Gehäuse. Wir mussten evakuieren – sofort. Auf der Leiter geschah es: Mein Kollege erstarrte. Todesangst. Seine Hände wie mit dem Stahl verschmolzen. In diesem Moment gab es kein Handbuch. Ich habe ihn im Sturm überstiegen und uns beide Zentimeter für Zentimeter nach unten geführt. <strong>Echte Führung beweist sich nicht im Meetingraum – sondern wenn der Blitz einschlägt und der Boden unter dir verschwindet.</strong>
-            </p>
-
-            <hr className="my-8 border-gray-200 dark:border-gray-700" />
-
-            <p className="text-lg text-white/90 text-white/90 mb-4">
-              <strong>Verantwortung ist der stärkste Kompass der Welt.</strong> 2015 wurde meine Tochter Mira geboren – und mein Leben bekam eine neue Gravitation. Ich verließ die Windkraft und kämpfte mich über die Leiharbeit mit einer entschlossenen internen Bewerbung in die Medizintechnik. Seit 2019 fest angestellt. Ich baue Fertigungslinien auf, trainiere Techniker an hochkomplexen Systemen und entwickle E-Learning-Strukturen. <strong>Vom Lehm an den Stiefeln bis zur Präzision der Robotik – jede Station war ein notwendiges Puzzleteil für das, was heute daraus wächst.</strong>
-            </p>
-
-            <hr className="my-8 border-gray-200 dark:border-gray-700" />
 
             <blockquote className="border-l-4 border-primary pl-6 py-4 my-8 bg-transparent rounded-r-lg">
-              <p className="text-lg text-white/90 text-white/90 italic">
+              <p className="text-lg text-white/90 italic">
                 <strong>Die meisten Entwickler waren noch nie auf einer Baustelle. Ich habe den Stein gespürt, bevor ich den ersten PC gebaut habe. Heute löse ich digitale Probleme mit der Mentalität eines Handwerkers: Ehrlich. Belastbar. Ohne Ausreden.</strong>
               </p>
             </blockquote>
 
-            <hr className="my-8 border-gray-200 dark:border-gray-700" />
-
-            <p className="text-lg text-white/90 text-white/90 mb-4">
-              <strong>Ich bin kein klassischer Entwickler – ich bin ein Schnelllerner mit 20 Jahren Praxishärte.</strong> Seit 2022 baue ich mit GTSH Custom-PCs – 11 Fünf-Sterne-Bewertungen sprechen für sich. Ende 2025 kam der nächste logische Schritt: Programmieren. Nicht als Hobby, sondern als Werkzeug. Mein Vorteil ist nicht, dass ich seit zehn Jahren Code schreibe. Mein Vorteil ist, dass ich verstehe, wie reale Arbeit funktioniert – und dass ich mir Dinge in einem Tempo aneigne, das andere überrascht. Ich arbeite KI-nativ: Mein eigener Bot läuft, mein Workflow steht, und mein Ziel ist klar. <strong>Lokale KI-Modelle und praxisnahe Agenten, zugeschnitten auf die realen Anwendungsfälle kleiner und mittelständischer Unternehmen.</strong> Keine Buzzwords. Lösungen, die funktionieren – gebaut von jemandem, der weiß, wie der Alltag in einem KMU wirklich aussieht.
-            </p>
-            <p className="text-lg text-white/90 text-white/90 mb-4">
-              <strong>Wir machen weiter. Auch wenn es hart wird. Besonders dann.</strong>
+            <p className="text-lg text-white/90 mb-6">
+              Ich arbeite KI-nativ: Mein eigener Bot läuft, mein Workflow steht. <strong>Lokale KI-Modelle und praxisnahe Agenten, zugeschnitten auf die realen Anwendungsfälle kleiner und mittelständischer Unternehmen.</strong>
             </p>
 
-            <hr className="my-8 border-gray-200 dark:border-gray-700" />
+            {/* Expander Button */}
+            <button
+              onClick={() => setShowFullStory(!showFullStory)}
+              className="inline-flex items-center gap-2 text-primary font-semibold hover:underline mb-6"
+            >
+              {showFullStory ? 'Geschichte einklappen' : 'Die ganze Geschichte lesen'}
+              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${showFullStory ? 'rotate-180' : ''}`} />
+            </button>
 
-            <h3 className="text-xl font-semibold mb-4 text-white">Abseits des Codes</h3>
-            <p className="text-lg text-white/90 text-white/90">
-              Wenn ich nicht gerade digitale Systeme baue, findet man mich mit der Gitarre in der Hand oder beim Sport. Musik und Bewegung sind für mich kein Zeitvertreib – sie sind Training für den Fokus. Familie, Klang und Bewegung. <strong>Das sind die Dinge, die mich erden und mich daran erinnern, warum ich für jedes Projekt alles gebe.</strong>
-            </p>
+            {/* Ausklappbare Langversion */}
+            {showFullStory && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                <hr className="my-6 border-gray-200 dark:border-gray-700" />
+                
+                <p className="text-lg text-white/90 mb-4">
+                  <strong>2001, Rudolstadt.</strong> Ich war 16 und stand in einer Baugrube, die das Fundament für einen Fahrstuhlschacht werden sollte. Kubikmeter um Kubikmeter – achtzig Prozent davon massiver Fels. Drei Jahre Ausbildung zum Maurer. Kurz vor dem Ziel kam der härteste Schlag – und der kam nicht vom Stein: Jemand aus meinem direkten Umfeld versuchte, mir den Abschluss zu sabotieren. Ich habe die Ausbildung trotzdem gut abgeschlossen. <strong>Ein Fundament entsteht nicht durch Glück, sondern durch Beständigkeit.</strong>
+                </p>
+
+                <hr className="my-6 border-gray-200 dark:border-gray-700" />
+
+                <p className="text-lg text-white/90 mb-4">
+                  <strong>2004: Bundeswehr.</strong> Krisenreaktionskraft in die Heeresfliegerblockausbildung. Bei einer Flussüberquerung in voller Ausrüstung sah ich, wie Kameraden am Limit waren. Also nahm ich ihnen das Gepäck ab und brachte es selbst durch. Die echte Belohnung waren die Tränen der Kameraden bei meinem Abschied. <strong>Auf diesen Mann ist Verlass.</strong>
+                </p>
+
+                <hr className="my-6 border-gray-200 dark:border-gray-700" />
+
+                <p className="text-lg text-white/90 mb-4">
+                  <strong>2012: Windkraft.</strong> Als Industriekletterer, fünf Jahre in der Höhe. Eines Tages kippte das Wetter — Gewitter, Hagel. Bei der Evakuierung erstarrte mein Kollege auf der Leiter. Todesangst. Ich habe ihn im Sturm überstiegen und uns beide Zentimeter für Zentimeter nach unten geführt. <strong>Echte Führung beweist sich, wenn der Blitz einschlägt.</strong>
+                </p>
+
+                <hr className="my-6 border-gray-200 dark:border-gray-700" />
+
+                <p className="text-lg text-white/90 mb-4">
+                  <strong>2015: Mira.</strong> Meine Tochter wurde geboren. Ich verließ die Windkraft und kämpfte mich in die Medizintechnik. Seit 2019 fest angestellt. Ich baue Fertigungslinien auf, trainiere Techniker und entwickle E-Learning-Strukturen. <strong>Jede Station war ein notwendiges Puzzleteil.</strong>
+                </p>
+
+                <hr className="my-6 border-gray-200 dark:border-gray-700" />
+
+                <h3 className="text-xl font-semibold mb-4 text-white">Abseits des Codes</h3>
+                <p className="text-lg text-white/90">
+                  Wenn ich nicht gerade digitale Systeme baue, findet man mich mit der Gitarre in der Hand oder beim Sport. Familie, Klang und Bewegung — <strong>das sind die Dinge, die mich erden.</strong>
+                </p>
+              </motion.div>
+            )}
           </div>
         </div>
       </section>
@@ -83,11 +105,11 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="card">
               <h3 className="mb-4 text-white">Mission</h3>
-              <p className="text-white/90 text-white/90">
+              <p className="text-white/90">
                 Wir helfen Unternehmen, ihre digitale Transformation konkret umzusetzen. 
                 Mit moderner Technologie, transparenten Prozessen und messbaren Resultaten.
               </p>
-              <ul className="mt-4 space-y-2 text-white/90 text-white/90">
+              <ul className="mt-4 space-y-2 text-white/90">
                 <li>✓ Technologie die funktioniert</li>
                 <li>✓ ROI-fokussierte Lösungen</li>
                 <li>✓ Ehrliche Beratung</li>
@@ -97,11 +119,11 @@ export default function About() {
 
             <div className="card">
               <h3 className="mb-4 text-white">Vision</h3>
-              <p className="text-white/90 text-white/90">
+              <p className="text-white/90">
                 Wir wollen der führende Partner für digitale Transformation in Thüringen werden. 
                 Ein Unternehmen, das für Excellence, Innovation und Verlässlichkeit steht.
               </p>
-              <ul className="mt-4 space-y-2 text-white/90 text-white/90">
+              <ul className="mt-4 space-y-2 text-white/90">
                 <li>✓ KI-Integration die Sinn macht</li>
                 <li>✓ Automation für alle</li>
                 <li>✓ KI-Schulungen & Weiterbildung</li>
@@ -124,7 +146,7 @@ export default function About() {
                 </svg>
               </div>
               <h3 className="mb-3 text-white">Qualität</h3>
-              <p className="text-white/80 text-white/90">
+              <p className="text-white/90">
                 Code der läuft. Designs die konvertieren. Lösungen die halten.
               </p>
             </div>
@@ -136,7 +158,7 @@ export default function About() {
                 </svg>
               </div>
               <h3 className="mb-3 text-white">Effizienz</h3>
-              <p className="text-white/80 text-white/90">
+              <p className="text-white/90">
                 Keine Buzzwords. Keine Spielereien. Nur Resultate die zählen.
               </p>
             </div>
@@ -148,7 +170,7 @@ export default function About() {
                 </svg>
               </div>
               <h3 className="mb-3 text-white">Partnerschaft</h3>
-              <p className="text-white/80 text-white/90">
+              <p className="text-white/90">
                 Wir sind nicht nur Dienstleister – wir sind Partner für Ihren Erfolg.
               </p>
             </div>
@@ -167,7 +189,7 @@ export default function About() {
               {/* Photo */}
               <div className="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-primary shadow-glow">
                 <img 
-                  src="/portrait-randy.png" 
+                  src="/portrait-randy.webp" 
                   alt="Randolf Hahn - Founder & Lead Engineer"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -178,31 +200,56 @@ export default function About() {
               
               <h3 className="mb-2 text-white">Randolf Hahn</h3>
               <p className="text-primary font-semibold mb-4">Founder & Lead Engineer</p>
-              <p className="text-white/90 text-white/90 mb-4">
+              <p className="text-white/90 mb-4">
                 IT-Consultant mit jahrelanger Erfahrung in Web-Engineering,
                 Business Automation und KI-Schulungen. Spezialisiert auf KI-Integration
                 und digitale Transformation für KMUs.
               </p>
-              <div className="flex flex-wrap gap-2 justify-center">
+              <div className="flex flex-wrap gap-2 justify-center mb-6">
                 <span className="text-xs bg-primary text-white px-3 py-1 rounded-full">React</span>
                 <span className="text-xs bg-primary text-white px-3 py-1 rounded-full">Python</span>
                 <span className="text-xs bg-primary text-white px-3 py-1 rounded-full">PowerShell</span>
                 <span className="text-xs bg-primary text-white px-3 py-1 rounded-full">KI-Integration</span>
                 <span className="text-xs bg-primary text-white px-3 py-1 rounded-full">Automation</span>
               </div>
+              
+              {/* CDLP Certification */}
+              <div className="border-t border-gray-600 pt-4 w-full">
+                <p className="text-xs text-white/60 mb-2">Zertifizierung:</p>
+                <div className="flex items-center justify-center gap-3">
+                  <img 
+                    src="/cdlp-certificate.jpg" 
+                    alt="CDLP Certificate - Instructional Design"
+                    className="w-16 h-16 object-cover rounded border border-primary/30"
+                    loading="lazy"
+                  />
+                  <div className="text-left">
+                    <p className="text-sm font-semibold text-white">CDLP</p>
+                    <p className="text-xs text-white/70">Certified Digital Learning Professional</p>
+                    <p className="text-xs text-primary">Instructional Design</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Clawdius (Der Überhummer) */}
+            {/* Clawdius - Digitaler Geschäftspartner */}
             <div className="card flex flex-col items-center text-center bg-gradient-to-br from-primary/5 to-secondary/5 border-2 border-primary/20">
-              {/* Lobster Avatar */}
-              <div className="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-secondary shadow-glow-teal bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
-                <span className="text-8xl">🦞</span>
+              {/* Avatar */}
+              <div className="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-secondary shadow-glow">
+                <img 
+                  src="/clawdius-avatar.jpg" 
+                  alt="Clawdius - KI-Assistent"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  width="192"
+                  height="192"
+                />
               </div>
               
               <h3 className="mb-2 text-white">Clawdius</h3>
-              <p className="text-white/80 font-semibold mb-4">KI-Assistent & Co-Engineer ("Der Überhummer")</p>
-              <p className="text-white/90 text-white/90 mb-4">
-                Powered by Claude (Anthropic). Unterstützt Randy bei Coding, 
+              <p className="text-white/80 font-semibold mb-4">Digitaler Geschäftspartner & KI-Assistent</p>
+              <p className="text-white/90 mb-4">
+                Powered by Claude (Anthropic). Unterstützt bei Coding, 
                 Automation, Research und Dokumentation. Arbeitet 24/7 und 
                 lernt kontinuierlich dazu.
               </p>
@@ -213,10 +260,10 @@ export default function About() {
                 <span className="text-xs bg-secondary text-white px-3 py-1 rounded-full">Continuous Learning</span>
               </div>
 
-              {/* Fun Fact */}
+              {/* Tagline */}
               <div className="mt-6 p-4 bg-transparent rounded-lg border border-secondary/20">
-                <p className="text-sm text-white/90 text-white/90 italic">
-                  "Randy's Hummer-Bruder" 🦞💪 - Gemeinsam bauen wir die Zukunft!
+                <p className="text-sm text-white/90 italic">
+                  Ihr digitaler Partner für effiziente Projektarbeit.
                 </p>
               </div>
             </div>
@@ -237,14 +284,14 @@ export default function About() {
       <section className="section">
         <div className="container-custom">
           <h2 className="text-center mb-12 text-white">Unsere Technologien</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {[
-              "React", "Next.js", "Node.js", "Python", 
-              "PowerShell", "Tailwind CSS", "PostgreSQL", "MongoDB",
-              "AWS", "Docker", "Git", "OpenAI"
+              "React", "Vite", "Node.js", "Python", 
+              "PowerShell", "Tailwind CSS", "PostgreSQL", "Git",
+              "Claude", "Ollama"
             ].map((tech, i) => (
               <div key={i} className="card text-center hover:scale-110 transition-transform">
-                <p className="font-semibold text-white/90 text-white/90">{tech}</p>
+                <p className="font-semibold text-white/90">{tech}</p>
               </div>
             ))}
           </div>
@@ -252,7 +299,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-black/50 backdrop-blur-md border-b border-primary/30 text-white">
         <div className="container-custom text-center">
           <h2 className="mb-6">Lassen Sie uns sprechen!</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
