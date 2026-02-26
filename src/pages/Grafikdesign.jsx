@@ -306,12 +306,12 @@ export default function Grafikdesign() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { src: '/gallery/workspace.png', title: 'Modern Workspace', desc: 'Professionelle Office-Szene' },
-                { src: '/gallery/serverroom.png', title: 'Server Room', desc: 'Tech-Infrastruktur Visual' },
-                { src: '/gallery/gaming-pc.png', title: 'Gaming PC Build', desc: 'Produkt-Fotografie Style' },
-                { src: '/gallery/ai-abstract.png', title: 'AI Visualization', desc: 'Abstrakte Tech-Grafik' },
-                { src: '/gallery/team-collab.png', title: 'Team Collaboration', desc: 'Business-Stock-Ersatz' },
-                { src: '/gallery/circuitboard.png', title: 'Circuit Board', desc: 'Makro Tech-Fotografie' },
+                { src: '/gallery/workspace.webp', title: 'Modern Workspace', desc: 'Professionelle Office-Szene' },
+                { src: '/gallery/serverroom.webp', title: 'Server Room', desc: 'Tech-Infrastruktur Visual' },
+                { src: '/gallery/gaming-pc.webp', title: 'Gaming PC Build', desc: 'Produkt-Fotografie Style' },
+                { src: '/gallery/ai-abstract.webp', title: 'AI Visualization', desc: 'Abstrakte Tech-Grafik' },
+                { src: '/gallery/team-collab.webp', title: 'Team Collaboration', desc: 'Business-Stock-Ersatz' },
+                { src: '/gallery/circuitboard.webp', title: 'Circuit Board', desc: 'Makro Tech-Fotografie' },
               ].map((item, index) => (
                 <motion.div
                   key={item.src}

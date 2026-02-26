@@ -390,9 +390,12 @@ export default function Services() {
               <p className="text-lg text-white/90 mb-2">
                 <strong>100% DSGVO-konform</strong> - Keine Daten verlassen Deutschland.
               </p>
-              <p className="text-white/60">
+              <p className="text-white/60 mb-4">
                 Eigene GPU-Infrastruktur. Keine US-Cloud. Keine laufenden API-Kosten.
               </p>
+              <Link to="/fallstudie" className="text-secondary hover:text-secondary/80 font-semibold transition-colors">
+                📊 Echte Benchmark-Ergebnisse ansehen →
+              </Link>
             </div>
           </div>
         </div>

@@ -28,6 +28,30 @@ const projects = [
       { label: 'Bewertungen', value: '12', icon: Star },
     ],
   },
+  {
+    id: 'clawdius-fallstudie',
+    title: 'Clawdius KI-Assistent',
+    subtitle: 'Private AI — Lokaler KI-Assistent für Business',
+    url: '/fallstudie',
+    status: 'LIVE',
+    statusColor: 'green',
+    description: 'Unser eigener KI-Assistent, der komplett lokal läuft. Echte Business-Szenarien mit messbaren Ergebnissen — von Kundenangeboten bis Code-Generierung. 0€ Cloud-Kosten.',
+    screenshot: null,
+    techStack: ['Ollama', 'qwen3:14b', 'Node.js', 'RTX 5090'],
+    highlights: [
+      '6 Business-Szenarien live getestet',
+      'Ø 19.4s Antwortzeit für komplexe Aufgaben',
+      '100% lokal — keine Daten verlassen das Netzwerk',
+      'Intelligentes Model-Routing (8B ↔ 14B)',
+      '0€ laufende API-Kosten nach Setup',
+      'DSGVO-konform by Design',
+    ],
+    results: [
+      { label: 'Ø Antwortzeit', value: '19.4s', icon: Zap },
+      { label: 'Cloud-Kosten', value: '0€', icon: Star },
+      { label: 'DSGVO', value: '100%', icon: Star },
+    ],
+  },
 ]
 
 export default function Portfolio() {
@@ -132,23 +156,33 @@ export default function Portfolio() {
                     <div className="w-20 h-20 bg-primary/20 rounded-2xl mx-auto mb-4 flex items-center justify-center">
                       <Globe className="w-10 h-10 text-primary/60" />
                     </div>
-                    <p className="text-white/80 font-semibold mb-1">Coming Soon</p>
-                    <p className="text-white/50 text-sm">Screenshot folgt nach Launch</p>
+                    <p className="text-white/80 font-semibold mb-1">{project.status === 'LIVE' && !project.screenshot ? 'Zur Fallstudie' : 'Coming Soon'}</p>
+                    <p className="text-white/50 text-sm">{project.status === 'LIVE' && !project.screenshot ? 'Klicken Sie auf den Link unten' : 'Screenshot folgt nach Launch'}</p>
                   </div>
                 </div>
 
                 {/* Hover Overlay */}
                 {project.status === 'LIVE' && (
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-transparent text-primary font-semibold px-6 py-3 rounded-lg hover:bg-transparent transition-colors shadow-2xl"
-                    >
-                      Website live ansehen
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
+                    {project.url.startsWith('/') ? (
+                      <Link
+                        to={project.url}
+                        className="inline-flex items-center gap-2 bg-transparent text-primary font-semibold px-6 py-3 rounded-lg hover:bg-transparent transition-colors shadow-2xl"
+                      >
+                        Fallstudie ansehen
+                        <ExternalLink className="w-4 h-4" />
+                      </Link>
+                    ) : (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-transparent text-primary font-semibold px-6 py-3 rounded-lg hover:bg-transparent transition-colors shadow-2xl"
+                      >
+                        Website live ansehen
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 )}
               </div>
@@ -215,15 +249,25 @@ export default function Portfolio() {
 
                 {/* CTA */}
                 {project.status === 'LIVE' ? (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary w-full text-center flex items-center justify-center gap-2"
-                  >
-                    Website live ansehen
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+                  project.url.startsWith('/') ? (
+                    <Link
+                      to={project.url}
+                      className="btn-primary w-full text-center flex items-center justify-center gap-2"
+                    >
+                      Fallstudie ansehen
+                      <ExternalLink className="w-4 h-4" />
+                    </Link>
+                  ) : (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary w-full text-center flex items-center justify-center gap-2"
+                    >
+                      Website live ansehen
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )
                 ) : (
                   <div className="card border-2 border-dashed border-yellow-400/50 text-center">
                     <p className="text-white/90">
