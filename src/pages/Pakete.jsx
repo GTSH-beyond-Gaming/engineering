@@ -210,7 +210,7 @@ export default function Pakete() {
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <motion.div
-              className="text-center mb-12"
+              className="glass-panel-light text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -330,7 +330,7 @@ export default function Pakete() {
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <motion.div
-              className="text-center mb-8"
+              className="glass-panel-light text-center mb-8"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -339,7 +339,7 @@ export default function Pakete() {
               <h2 className="mb-4 text-white">
                 Was ist enthalten?
               </h2>
-              <p className="text-lg text-white/90 mb-6">
+              <p className="text-lg text-white/90 mb-4">
                 Detaillierter Vergleich aller Pakete auf einen Blick.
               </p>
               <button
@@ -427,7 +427,7 @@ export default function Pakete() {
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <motion.div
-              className="text-center mb-12"
+              className="glass-panel-light text-center mb-12"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -511,7 +511,7 @@ export default function Pakete() {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <motion.div
-              className="text-center mb-12"
+              className="glass-panel-light text-center mb-12"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -520,7 +520,7 @@ export default function Pakete() {
               <h2 className="mb-4 text-white">
                 Häufige Fragen zu unseren Paketen
               </h2>
-              <p className="text-white/60">
+              <p className="text-white/70">
                 Alles was Sie über unsere Service-Pakete wissen müssen
               </p>
             </motion.div>
