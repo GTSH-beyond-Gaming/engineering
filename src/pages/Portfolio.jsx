@@ -233,11 +233,13 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-6 text-white">KI-Bildgenerierung</h2>
-            <p className="text-lg text-white/90 mb-8">
-              Photorealistische Bilder für Marketing, Produktfotos und Content – 
-              generiert mit unserer lokalen KI-Infrastruktur. Keine Cloud, keine Wartezeiten.
-            </p>
+            <div className="glass-panel-light mb-8">
+              <h2 className="mb-4 text-white">KI-Bildgenerierung</h2>
+              <p className="text-lg text-white/90">
+                Photorealistische Bilder für Marketing, Produktfotos und Content – 
+                generiert mit unserer lokalen KI-Infrastruktur. Keine Cloud, keine Wartezeiten.
+              </p>
+            </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="card hover:shadow-glow transition-all">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg mx-auto mb-4 flex items-center justify-center">

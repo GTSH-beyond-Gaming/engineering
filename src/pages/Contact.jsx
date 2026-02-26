@@ -138,11 +138,13 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Calendly */}
             <div>
-              <h2 className="mb-6 text-white">Termin buchen</h2>
-              <p className="text-white/90 mb-6">
-                Buchen Sie direkt einen 30-minütigen Termin für ein kostenloses Erstgespräch.
-                Wir besprechen Ihre Anforderungen und zeigen Ihnen konkrete Lösungswege.
-              </p>
+              <div className="glass-panel-light mb-6">
+                <h2 className="mb-4 text-white">Termin buchen</h2>
+                <p className="text-white/90">
+                  Buchen Sie direkt einen 30-minütigen Termin für ein kostenloses Erstgespräch.
+                  Wir besprechen Ihre Anforderungen und zeigen Ihnen konkrete Lösungswege.
+                </p>
+              </div>
               
               {/* Calendly Embed */}
               <div className="card bg-transparent">
@@ -158,7 +160,9 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div>
-              <h2 className="mb-6 text-white">Oder schreiben Sie uns</h2>
+              <div className="glass-panel-light mb-6">
+                <h2 className="text-white">Oder schreiben Sie uns</h2>
+              </div>
               <form onSubmit={handleSubmit} className="card space-y-6">
                 {/* Honeypot (hidden) */}
                 <input
