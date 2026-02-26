@@ -108,7 +108,7 @@ export default function KISchulungen() {
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <motion.div
-              className="text-center mb-12"
+              className="glass-panel-light text-center mb-12"
               {...fadeInUp}
             >
               <h2 className="mb-4 text-white">Unsere KI-Workshops</h2>
@@ -350,7 +350,7 @@ export default function KISchulungen() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <motion.div
-              className="text-center mb-12"
+              className="glass-panel-light text-center mb-12"
               {...fadeInUp}
             >
               <h2 className="mb-4 text-white">Beispiel-Agenda: KI-Integration Workshop</h2>
@@ -478,7 +478,7 @@ export default function KISchulungen() {
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <motion.div
-              className="text-center mb-12"
+              className="glass-panel-light text-center mb-12"
               {...fadeInUp}
             >
               <h2 className="mb-4 text-white">Für wen ist das?</h2>
@@ -583,7 +583,7 @@ export default function KISchulungen() {
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <motion.div
-              className="text-center mb-12"
+              className="glass-panel-light text-center mb-12"
               {...fadeInUp}
             >
               <h2 className="mb-4 text-white">Warum KI-Schulungen?</h2>
@@ -666,7 +666,7 @@ export default function KISchulungen() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <motion.div
-              className="text-center mb-12"
+              className="glass-panel-light text-center mb-12"
               {...fadeInUp}
             >
               <h2 className="mb-4 text-white">So läuft eine Schulung ab</h2>

@@ -144,24 +144,20 @@ export default function Grafikdesign() {
       <section className="section">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
-            <motion.h2
-              className="text-center mb-4 text-white"
+            <motion.div
+              className="glass-panel-light text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              Unsere Grafikdesign-Services
-            </motion.h2>
-            <motion.p
-              className="text-center text-lg text-white/90 mb-12 max-w-2xl mx-auto"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Ob einzelnes Logo oder komplette Markenidentität – wir gestalten visuell, was Ihr Business ausmacht.
-            </motion.p>
+              <h2 className="mb-4 text-white">
+                Unsere Grafikdesign-Services
+              </h2>
+              <p className="text-lg text-white/90 max-w-2xl mx-auto">
+                Ob einzelnes Logo oder komplette Markenidentität – wir gestalten visuell, was Ihr Business ausmacht.
+              </p>
+            </motion.div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {services.map((service, index) => {
@@ -292,25 +288,21 @@ export default function Grafikdesign() {
       <section className="section">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
-            <motion.h2
-              className="text-center mb-4 text-white"
+            <motion.div
+              className="glass-panel-light text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              AI-Generierte Beispiele
-            </motion.h2>
-            <motion.p
-              className="text-center text-lg text-white/90 mb-12 max-w-2xl mx-auto"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Alle Bilder wurden mit unserer lokalen KI-Infrastruktur generiert. 
-              Photorealistisch, hochauflösend, sofort einsatzbereit.
-            </motion.p>
+              <h2 className="mb-4 text-white">
+                AI-Generierte Beispiele
+              </h2>
+              <p className="text-lg text-white/90 max-w-2xl mx-auto">
+                Alle Bilder wurden mit unserer lokalen KI-Infrastruktur generiert. 
+                Photorealistisch, hochauflösend, sofort einsatzbereit.
+              </p>
+            </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
