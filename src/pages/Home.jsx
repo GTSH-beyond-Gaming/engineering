@@ -138,8 +138,8 @@ export default function Home() {
       {/* Problem-Solution */}
       <section className="section ">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid md:grid-cols-2 gap-8 items-stretch">
+            <div className="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/10">
               <h2 className="mb-6 text-white">Das Problem</h2>
               <ul className="space-y-4 text-lg text-white/90">
                 <li className="flex items-start">
@@ -160,7 +160,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/10">
               <h2 className="mb-6 text-white">Die Lösung</h2>
               <ul className="space-y-4 text-lg text-white/90">
                 <li className="flex items-start">
