@@ -30,6 +30,9 @@ export default function Navigation() {
             <Link to="/portfolio" className="text-white/90 hover:text-primary font-medium transition-colors">
               Portfolio
             </Link>
+            <Link to="/fallstudie" className="text-white/90 hover:text-primary font-medium transition-colors">
+              Fallstudie
+            </Link>
             <Link to="/about" className="text-white/90 hover:text-primary font-medium transition-colors">
               Über Uns
             </Link>
@@ -66,6 +69,9 @@ export default function Navigation() {
             </Link>
             <Link to="/portfolio" onClick={() => setIsOpen(false)} className="block py-2 text-white/90 hover:text-primary font-medium">
               Portfolio
+            </Link>
+            <Link to="/fallstudie" onClick={() => setIsOpen(false)} className="block py-2 text-white/90 hover:text-primary font-medium">
+              Fallstudie
             </Link>
             <Link to="/about" onClick={() => setIsOpen(false)} className="block py-2 text-white/90 hover:text-primary font-medium">
               Über Uns

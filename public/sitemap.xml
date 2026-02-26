@@ -31,6 +31,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://gtsh-engineering.de/fallstudie</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://gtsh-engineering.de/about</loc>
     <lastmod>2026-02-26</lastmod>
     <changefreq>monthly</changefreq>
