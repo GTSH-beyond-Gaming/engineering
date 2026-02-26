@@ -12,35 +12,10 @@ import TerminalAnimation from '../components/TerminalAnimation'
 export default function Home() {
   return (
     <div>
-      {/* Hero Section - UPGRADED! */}
-      <section className="relative section min-h-screen flex items-center bg-gradient-to-br from-primary via-brand-blue to-secondary dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white overflow-hidden">
-        {/* Animated Background */}
-        <AnimatedBackground />
-        
-        {/* Floating Particles */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(15)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-white/20 rounded-full"
-              animate={{
-                x: [0, Math.random() * 100 - 50, 0],
-                y: [0, Math.random() * 100 - 50, 0],
-                scale: [1, 1.5, 1],
-                opacity: [0.2, 0.5, 0.2]
-              }}
-              transition={{
-                duration: 5 + Math.random() * 5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`
-              }}
-            />
-          ))}
-        </div>
+      {/* Hero Section - TRANSPARENT mit fixem Serverraum-Hintergrund */}
+      <section className="relative section min-h-screen flex items-center bg-transparent text-white overflow-hidden">
+        {/* Gradient Overlay für Textlesbarkeit links */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent pointer-events-none" />
         
         {/* Content */}
         <div className="container-custom relative z-10">
@@ -55,10 +30,10 @@ export default function Home() {
               >
                 <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                   <span className="gradient-text-animated">Lokale KI.</span>{" "}
-                  <span className="text-secondary">Maximale Kontrolle.</span>
+                  <span className="text-white/80">Maximale Kontrolle.</span>
                   <br />
                   <span className="text-white">Websites & Automation</span>{" "}
-                  <span className="text-secondary">ohne Cloud-Abhängigkeit.</span>
+                  <span className="text-white/80">ohne Cloud-Abhängigkeit.</span>
                 </h1>
               </motion.div>
 
@@ -98,7 +73,7 @@ export default function Home() {
                 </RippleButton>
                 <RippleButton
                   onClick={() => window.location.href = '/portfolio'}
-                  className="bg-white text-primary hover:bg-gray-100 dark:bg-gray-800 dark:text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 text-lg hover:scale-105 cursor-pointer"
+                  className="bg-transparent text-primary hover:bg-transparent  text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 text-lg hover:scale-105 cursor-pointer"
                 >
                   Referenzen ansehen
                 </RippleButton>
@@ -161,12 +136,12 @@ export default function Home() {
       <TrustBadges />
 
       {/* Problem-Solution */}
-      <section className="section dark:bg-gray-900">
+      <section className="section ">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="mb-6 text-gray-900 dark:text-white">Das Problem</h2>
-              <ul className="space-y-4 text-lg dark:text-gray-300">
+              <h2 className="mb-6 text-gray-900 text-white">Das Problem</h2>
+              <ul className="space-y-4 text-lg text-white/90">
                 <li className="flex items-start">
                   <span className="text-red-500 mr-3 text-2xl">✗</span>
                   <span>Manuelle Prozesse fressen Zeit + Geld</span>
@@ -186,8 +161,8 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-gray-900 dark:text-white">Die Lösung</h2>
-              <ul className="space-y-4 text-lg dark:text-gray-300">
+              <h2 className="mb-6 text-gray-900 text-white">Die Lösung</h2>
+              <ul className="space-y-4 text-lg text-white/90">
                 <li className="flex items-start">
                   <span className="text-green-500 mr-3 text-2xl">✓</span>
                   <span>Automation spart bis zu 80% Arbeitszeit</span>
@@ -212,10 +187,10 @@ export default function Home() {
 
 
       {/* Services Overview */}
-      <section className="section bg-gray-100 dark:bg-gray-900">
+      <section className="section bg-transparent">
         <div className="container-custom">
           <motion.h2 
-            className="text-center mb-12 dark:text-white"
+            className="text-center mb-12 text-white"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -238,10 +213,10 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="mb-3 group-hover:text-primary transition-colors">Web-Engineering</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
+              <p className="text-white/90 text-white/90 mb-4">
                 Moderne Websites die konvertieren. React, Next.js, SEO-optimiert.
               </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400 line-through mb-1">Ab €2.500</p>
+              <p className="text-sm text-white/70 text-white/60 line-through mb-1">Ab €2.500</p>
               <p className="font-semibold text-primary text-lg">🚀 Ab €2.000 (Pionier-Preis!)</p>
             </motion.div>
 
@@ -258,12 +233,12 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="mb-3 group-hover:text-secondary transition-colors">Business Automation</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
+              <h3 className="mb-3 group-hover:text-white/80 transition-colors">Business Automation</h3>
+              <p className="text-white/90 text-white/90 mb-4">
                 Prozesse optimieren, Zeit sparen. Von PowerShell bis Python.
               </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400 line-through mb-1">Ab €1.500</p>
-              <p className="font-semibold text-secondary text-lg">🚀 Ab €1.200 (Pionier-Preis!)</p>
+              <p className="text-sm text-white/70 text-white/60 line-through mb-1">Ab €1.500</p>
+              <p className="font-semibold text-white/80 text-lg">🚀 Ab €1.200 (Pionier-Preis!)</p>
             </motion.div>
 
             {/* E-Learning */}
@@ -280,10 +255,10 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="mb-3 group-hover:text-primary transition-colors">E-Learning</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
+              <p className="text-white/90 text-white/90 mb-4">
                 Digitale Trainings-Plattformen. Gamification, Analytics.
               </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400 line-through mb-1">Ab €5.000</p>
+              <p className="text-sm text-white/70 text-white/60 line-through mb-1">Ab €5.000</p>
               <p className="font-semibold text-primary text-lg">🚀 Ab €4.000 (Pionier-Preis!)</p>
             </motion.div>
 
@@ -300,12 +275,12 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="mb-3 group-hover:text-secondary transition-colors">Digital-Beratung</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
+              <h3 className="mb-3 group-hover:text-white/80 transition-colors">Digital-Beratung</h3>
+              <p className="text-white/90 text-white/90 mb-4">
                 KI-Strategie für Ihr Business. Tech-Stack-Audit, Roadmaps.
               </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400 line-through mb-1">€150/Stunde</p>
-              <p className="font-semibold text-secondary text-lg">🚀 €120/h (Pionier-Preis!)</p>
+              <p className="text-sm text-white/70 text-white/60 line-through mb-1">€150/Stunde</p>
+              <p className="font-semibold text-white/80 text-lg">🚀 €120/h (Pionier-Preis!)</p>
             </motion.div>
 
             {/* Private AI - NEU! */}
@@ -324,16 +299,16 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="mb-3 group-hover:text-secondary transition-colors">Private AI Solutions</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
+              <h3 className="mb-3 group-hover:text-white/80 transition-colors">Private AI Solutions</h3>
+              <p className="text-white/90 text-white/90 mb-4">
                 KI-Modelle die 100% lokal auf IHRER Hardware laufen. Keine Cloud. Maximale Privatsphäre.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300 mb-4">
+              <ul className="space-y-2 text-sm text-white/90 text-white/90 mb-4">
                 <li>✓ Lokale LLMs (bis 70B Parameter)</li>
                 <li>✓ Discord/WhatsApp Bots</li>
                 <li>✓ €0 laufende API-Kosten</li>
               </ul>
-              <p className="font-semibold text-secondary text-lg">Ab €3.000 (Setup)</p>
+              <p className="font-semibold text-white/80 text-lg">Ab €3.000 (Setup)</p>
             </motion.div>
           </div>
           <div className="text-center mt-12">
@@ -344,11 +319,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us (Start-up Honest!) */}
-      <section className="section dark:bg-gray-800">
-        <div className="container-custom text-center">
+      {/* Why Choose Us (Start-up Honest!) - mit schönem Rahmen */}
+      <section className="py-16 bg-black/80 backdrop-blur-md border-y-2 border-primary/40 shadow-lg relative overflow-hidden">
+        {/* Decorative glow */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+        <div className="container-custom text-center relative z-10">
           <motion.h2 
-            className="mb-4 dark:text-white"
+            className="mb-4 text-white"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -356,24 +334,24 @@ export default function Home() {
           >
             Warum GTSH Engineering?
           </motion.h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p className="text-lg text-white/70 mb-12 max-w-2xl mx-auto">
             Wir sind ein junges Start-up aus Thüringen - und genau das ist unsere Stärke!
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="card">
               <div className="text-5xl font-bold text-primary mb-2">5.0</div>
-              <p className="text-xl text-gray-600 dark:text-gray-300 mb-2">⭐⭐⭐⭐⭐</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Google Reviews (GTSH Gaming)</p>
+              <p className="text-xl text-white/90 mb-2">⭐⭐⭐⭐⭐</p>
+              <p className="text-sm text-white/60">Google Reviews (GTSH Gaming)</p>
             </div>
             <div className="card">
-              <div className="text-5xl font-bold text-secondary mb-2">20%</div>
-              <p className="text-xl text-gray-600 dark:text-gray-300 mb-2">Pionier-Rabatt</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Für unsere ersten Kunden!</p>
+              <div className="text-5xl font-bold text-white/80 mb-2">20%</div>
+              <p className="text-xl text-white/90 mb-2">Pionier-Rabatt</p>
+              <p className="text-sm text-white/60">Für unsere ersten Kunden!</p>
             </div>
             <div className="card">
               <div className="text-5xl font-bold text-primary mb-2">2026</div>
-              <p className="text-xl text-gray-600 dark:text-gray-300 mb-2">Frisch gestartet</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Motiviert & hungrig</p>
+              <p className="text-xl text-white/90 mb-2">Frisch gestartet</p>
+              <p className="text-sm text-white/60">Motiviert & hungrig</p>
             </div>
           </div>
         </div>
@@ -386,14 +364,14 @@ export default function Home() {
       <AnimatedStats />
 
       {/* Portfolio Showcase */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-900">
+      <section className="py-24 bg-transparent">
         <div className="container-custom">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="mb-4 text-gray-900 dark:text-white">
+            <h2 className="mb-4 text-gray-900 text-white">
               Unser erstes Projekt - Unsere Referenz
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
               Wir haben für uns selbst gebaut - mit der gleichen Qualität, die du von uns erwarten kannst!
             </p>
           </div>
@@ -403,10 +381,10 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8">
               {/* Left: Project Info */}
               <div className="card">
-                <h3 className="mb-4 text-gray-900 dark:text-white">
+                <h3 className="mb-4 text-gray-900 text-white">
                   GTSH Beyond Gaming
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-6">
+                <p className="text-white/90 text-white/90 mb-6">
                   Unsere eigene E-Commerce & Gaming-Plattform. Gebaut mit modernsten Technologien, 
                   SEO-optimiert und mit 90+ Lighthouse Score.
                 </p>
@@ -415,22 +393,22 @@ export default function Home() {
                   <div className="flex items-start gap-3">
                     <span className="text-green-500 text-xl">✓</span>
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">React + Next.js</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Modern Tech-Stack</p>
+                      <p className="font-semibold text-gray-900 text-white">React + Next.js</p>
+                      <p className="text-sm text-white/60">Modern Tech-Stack</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-green-500 text-xl">✓</span>
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">90+ Lighthouse Score</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Performance-optimiert</p>
+                      <p className="font-semibold text-gray-900 text-white">90+ Lighthouse Score</p>
+                      <p className="text-sm text-white/60">Performance-optimiert</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-green-500 text-xl">✓</span>
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">DSGVO-konform</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Cookie-Banner, Datenschutz</p>
+                      <p className="font-semibold text-gray-900 text-white">DSGVO-konform</p>
+                      <p className="text-sm text-white/60">Cookie-Banner, Datenschutz</p>
                     </div>
                   </div>
                 </div>
@@ -457,12 +435,12 @@ export default function Home() {
                         </svg>
                       ))}
                     </div>
-                    <span className="text-3xl font-bold text-gray-900 dark:text-white">5,0</span>
+                    <span className="text-3xl font-bold text-gray-900 text-white">5,0</span>
                   </div>
-                  <p className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  <p className="text-xl font-semibold text-gray-900 text-white mb-2">
                     11 echte Google Reviews
                   </p>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  <p className="text-white/90 text-white/90 mb-4">
                     Von echten Kunden, die unsere Qualität erlebt haben.
                   </p>
                   <a
@@ -478,14 +456,14 @@ export default function Home() {
                 {/* Pionier-Rabatt Card */}
                 <div className="card border-2 border-secondary bg-gradient-to-br from-secondary/5 to-primary/5">
                   <div className="text-4xl mb-3">🚀</div>
-                  <h3 className="mb-3 text-gray-900 dark:text-white">
+                  <h3 className="mb-3 text-gray-900 text-white">
                     Werde Pionier-Kunde!
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  <p className="text-white/90 text-white/90 mb-4">
                     Als junges Start-up bieten wir aktuell <strong>20% Pionier-Rabatt</strong>! 
                     Profitiere von unserer Motivation, uns zu beweisen.
                   </p>
-                  <p className="text-2xl font-bold text-secondary mb-4">
+                  <p className="text-2xl font-bold text-white/80 mb-4">
                     Spare bis zu €1.000!
                   </p>
                   <a
@@ -501,7 +479,7 @@ export default function Home() {
 
           {/* Call-to-Action */}
           <div className="text-center mt-16">
-            <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
+            <p className="text-xl text-white/90 text-white/90 mb-6">
               Willst du das nächste Projekt sein?
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -517,7 +495,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="section bg-gradient-to-r from-primary to-primary-dark dark:from-gray-900 dark:to-gray-800 text-white">
+      <section className="section bg-transparent">
         <div className="container-custom text-center">
           <h2 className="mb-6">Bereit für digitale Transformation?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
@@ -534,3 +512,8 @@ export default function Home() {
     </div>
   )
 }
+
+
+
+
+

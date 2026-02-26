@@ -49,7 +49,7 @@ export default function PriceCalculator() {
   }
   
   return (
-    <section className="section bg-gray-50 dark:bg-gray-900">
+    <section className="section bg-transparent">
       <div className="container-custom max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,8 +58,8 @@ export default function PriceCalculator() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="mb-4 dark:text-white">Was kostet Ihr Projekt?</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <h2 className="mb-4 text-white">Was kostet Ihr Projekt?</h2>
+          <p className="text-lg text-white/80 text-white/90">
             Berechnen Sie den Preis für Ihre individuelle Lösung.
           </p>
         </motion.div>
@@ -73,7 +73,7 @@ export default function PriceCalculator() {
         >
           {/* Website Type */}
           <div className="mb-8">
-            <label className="block font-semibold text-lg mb-4 dark:text-white">
+            <label className="block font-semibold text-lg mb-4 text-white">
               Website-Typ:
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -91,8 +91,8 @@ export default function PriceCalculator() {
                     }
                   `}
                 >
-                  <p className="font-semibold mb-1 dark:text-white">{type.name}</p>
-                  <p className="text-2xl font-bold text-primary dark:text-secondary">
+                  <p className="font-semibold mb-1 text-white">{type.name}</p>
+                  <p className="text-2xl font-bold text-primary text-white/80">
                     €{type.price.toLocaleString()}
                   </p>
                 </motion.button>
@@ -102,7 +102,7 @@ export default function PriceCalculator() {
           
           {/* Add-Ons */}
           <div className="mb-8">
-            <label className="block font-semibold text-lg mb-4 dark:text-white">
+            <label className="block font-semibold text-lg mb-4 text-white">
               Add-Ons (optional):
             </label>
             <div className="space-y-2">
@@ -127,9 +127,9 @@ export default function PriceCalculator() {
                         onChange={() => toggleAddon(addon)}
                         className="w-5 h-5 accent-primary cursor-pointer"
                       />
-                      <span className="dark:text-white">{addon.name}</span>
+                      <span className="text-white">{addon.name}</span>
                     </div>
-                    <span className="font-semibold text-primary dark:text-secondary">
+                    <span className="font-semibold text-primary text-white/80">
                       +€{addon.price.toLocaleString()}
                     </span>
                   </motion.label>
@@ -191,7 +191,7 @@ export default function PriceCalculator() {
             
             <Link
               to="/contact"
-              className="block w-full text-center bg-white text-primary font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+              className="block w-full text-center bg-transparent text-primary font-bold px-6 py-3 rounded-lg hover:bg-transparent transition-colors"
             >
               Jetzt unverbindlich anfragen →
             </Link>
@@ -201,3 +201,6 @@ export default function PriceCalculator() {
     </section>
   )
 }
+
+
+

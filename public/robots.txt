@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://gtsh-engineering.de/sitemap.xml
+
+# Crawler-Delay für Bots
+Crawl-delay: 1
