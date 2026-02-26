@@ -1,38 +1,118 @@
+import { useEffect, useState } from 'react'
+
 export default function HeroLEDs() {
-  // Positionen basierend auf dem Cyborg-Bild (hero-background.webp)
-  // Diese verstärken die existierenden orangenen LEDs im Bild
-  const leds = [
-    // Pupille links (orangenes Auge)
-    { top: '22%', right: '32%', size: 12, color: '#FF8C00', delay: 0, anim: 'led-pulse-slow' },
-    // Jochbein/Wange diagonal
-    { top: '32%', right: '25%', size: 20, color: '#FF8C00', delay: 0.5, anim: 'led-pulse' },
-    // Ohr-Mechanik (große orangene Fläche)
-    { top: '38%', right: '18%', size: 28, color: '#FF8C00', delay: 1.0, anim: 'led-pulse-slow' },
-    // Hals-Konnektor oben (Kehlkopf-Bereich)
-    { top: '52%', right: '28%', size: 16, color: '#FF8C00', delay: 1.5, anim: 'led-pulse' },
-    // Hals kleiner Kreis
-    { top: '58%', right: '24%', size: 12, color: '#FF8C00', delay: 2.0, anim: 'led-blink' },
-    // Sternum/Brust unten (großer orangener Glow)
-    { top: '72%', right: '30%', size: 24, color: '#FF8C00', delay: 2.5, anim: 'led-pulse-slow' },
+  const [serverLeds, setServerLeds] = useState([])
+  
+  useEffect(() => {
+    // Server-Rack LEDs - nur im linken Bereich wo die Serverschränke sind
+    const leds = Array.from({ length: 12 }, (_, i) => ({
+      id: i,
+      left: 5 + Math.random() * 22,
+      top: 40 + Math.random() * 45,
+      color: Math.random() > 0.3 ? '#FF8C00' : '#00FF88',
+      delay: Math.random() * 12,
+    }))
+    setServerLeds(leds)
+  }, [])
+
+  // Cyborg LED Positionen (basierend auf hero-background.webp)
+  // Der Cyborg ist rechts im Bild positioniert
+  const cyborgLeds = [
+    // Linkes Auge (Iris) - das grün markierte
+    { 
+      id: 'eye',
+      right: '32%', 
+      top: '32%', 
+      size: 8,
+      glow: 20,
+      anim: 'led-pulse-slow',
+      delay: 0,
+    },
+    // Seitliche Kopfplatte/Wange (diagonaler Streifen)
+    { 
+      id: 'cheek',
+      right: '28%', 
+      top: '42%', 
+      size: 6,
+      glow: 15,
+      anim: 'led-pulse',
+      delay: 0.5,
+    },
+    // Ohr-Ring (der leuchtende Kreis am Ohr)
+    { 
+      id: 'ear',
+      right: '22%', 
+      top: '38%', 
+      size: 12,
+      glow: 25,
+      anim: 'led-pulse-slow',
+      delay: 1,
+    },
+    // Hals oberer Bereich
+    { 
+      id: 'neck1',
+      right: '26%', 
+      top: '62%', 
+      size: 5,
+      glow: 12,
+      anim: 'led-blink',
+      delay: 1.5,
+    },
+    // Hals mittlerer Bereich
+    { 
+      id: 'neck2',
+      right: '24%', 
+      top: '68%', 
+      size: 6,
+      glow: 14,
+      anim: 'led-pulse',
+      delay: 2,
+    },
+    // Schulter/Brust LED
+    { 
+      id: 'chest',
+      right: '20%', 
+      top: '82%', 
+      size: 7,
+      glow: 16,
+      anim: 'led-pulse-slow',
+      delay: 2.5,
+    },
   ]
 
   return (
-    <div 
-      className="fixed inset-0 pointer-events-none z-[15] hidden lg:block" 
-      aria-hidden="true"
-    >
-      {leds.map((led, i) => (
+    <div className="fixed inset-0 pointer-events-none z-[5] hidden lg:block" aria-hidden="true">
+      
+      {/* ===== CYBORG LEDS ===== */}
+      {cyborgLeds.map((led) => (
         <div
-          key={i}
-          className="absolute rounded-full"
+          key={led.id}
+          className={`absolute rounded-full ${led.anim}`}
           style={{
-            top: led.top,
             right: led.right,
+            top: led.top,
             width: `${led.size}px`,
             height: `${led.size}px`,
+            backgroundColor: '#FF8C00',
+            boxShadow: `0 0 ${led.glow}px ${led.glow/2}px #FF8C00, 0 0 ${led.glow*2}px ${led.glow}px #FF8C0060`,
+            animationDelay: `${led.delay}s`,
+          }}
+        />
+      ))}
+
+      {/* ===== SERVER RACK LEDS ===== */}
+      {serverLeds.map((led) => (
+        <div
+          key={`server-${led.id}`}
+          className="absolute rounded-full server-led"
+          style={{
+            left: `${led.left}%`,
+            top: `${led.top}%`,
+            width: '3px',
+            height: '3px',
             backgroundColor: led.color,
-            boxShadow: `0 0 ${led.size * 4}px ${led.size * 2}px ${led.color}, 0 0 ${led.size * 8}px ${led.size * 3}px ${led.color}80`,
-            animation: `${led.anim} ${3 + i * 0.3}s ease-in-out ${led.delay}s infinite`,
+            boxShadow: `0 0 6px 2px ${led.color}`,
+            animationDelay: `${led.delay}s`,
           }}
         />
       ))}

@@ -13,6 +13,7 @@ import ProcessSteps from '../components/ProcessSteps'
 export default function Home() {
   return (
     <div>
+      
       {/* Hero Section - TRANSPARENT mit fixem Serverraum-Hintergrund */}
       <section className="relative section min-h-screen flex items-center bg-transparent text-white overflow-hidden">
         {/* Gradient Overlay für Textlesbarkeit links */}
