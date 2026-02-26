@@ -8,6 +8,7 @@ import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { ChevronDown, Shield, Zap, Award } from 'lucide-react'
 import TerminalAnimation from '../components/TerminalAnimation'
+import ProcessSteps from '../components/ProcessSteps'
 
 export default function Home() {
   return (
@@ -20,8 +21,8 @@ export default function Home() {
         {/* Content */}
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left: Text Content */}
-            <div className="text-center lg:text-left">
+            {/* Left: Text Content - mit Glasfläche */}
+            <div className="text-center lg:text-left bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-white/10">
               {/* Headline - OUTCOME DRIVEN */}
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -105,7 +106,7 @@ export default function Home() {
                   className="flex items-center gap-2 cursor-default"
                 >
                   <Award className="w-6 h-6" />
-                  <span>20% Pionier-Rabatt</span>
+                  <span>Festpreise garantiert</span>
                 </motion.div>
               </motion.div>
             </div>
@@ -189,15 +190,17 @@ export default function Home() {
       {/* Services Overview */}
       <section className="section bg-transparent">
         <div className="container-custom">
-          <motion.h2 
-            className="text-center mb-12 text-white"
+          <motion.div
+            className="bg-black/40 backdrop-blur-md rounded-2xl p-6 mb-12 border border-white/10 max-w-md mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Unsere Leistungen
-          </motion.h2>
+            <h2 className="text-center text-white mb-0">
+              Unsere Leistungen
+            </h2>
+          </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {/* Web-Engineering */}
             <motion.div 
@@ -216,8 +219,8 @@ export default function Home() {
               <p className="text-white/90 mb-4">
                 Moderne Websites die konvertieren. React, Next.js, SEO-optimiert.
               </p>
-              <p className="text-sm text-white/60 line-through mb-1">Ab €2.500</p>
-              <p className="font-semibold text-primary text-lg">🚀 Ab €2.000 (Pionier-Preis!)</p>
+              <p className="font-semibold text-primary text-lg">Ab €2.500</p>
+              <p className="text-sm text-white/60">Festpreis. Keine versteckten Kosten.</p>
             </motion.div>
 
             {/* Automation */}
@@ -237,8 +240,8 @@ export default function Home() {
               <p className="text-white/90 mb-4">
                 Prozesse optimieren, Zeit sparen. Von PowerShell bis Python.
               </p>
-              <p className="text-sm text-white/60 line-through mb-1">Ab €1.500</p>
-              <p className="font-semibold text-white/80 text-lg">🚀 Ab €1.200 (Pionier-Preis!)</p>
+              <p className="font-semibold text-white/80 text-lg">Ab €1.500</p>
+              <p className="text-sm text-white/60">Festpreis. Keine versteckten Kosten.</p>
             </motion.div>
 
             {/* E-Learning - Coming Soon (auskommentiert bis Portfolio existiert) */}
@@ -260,8 +263,8 @@ export default function Home() {
               <p className="text-white/90 mb-4">
                 KI-Strategie für Ihr Business. Tech-Stack-Audit, Roadmaps.
               </p>
-              <p className="text-sm text-white/60 line-through mb-1">€150/Stunde</p>
-              <p className="font-semibold text-white/80 text-lg">🚀 €120/h (Pionier-Preis!)</p>
+              <p className="font-semibold text-white/80 text-lg">€150/Stunde</p>
+              <p className="text-sm text-white/60">Flexibel buchbar. Keine Mindestlaufzeit.</p>
             </motion.div>
 
             {/* Private AI - NEU! */}
@@ -285,7 +288,7 @@ export default function Home() {
                 KI-Modelle die 100% lokal auf IHRER Hardware laufen. Keine Cloud. Maximale Privatsphäre.
               </p>
               <ul className="space-y-2 text-sm text-white/90 mb-4">
-                <li>✓ Lokale LLMs (bis 70B Parameter)</li>
+                <li>✓ Lokale LLMs (32B+ Parameter)</li>
                 <li>✓ Discord/WhatsApp Bots</li>
                 <li>✓ €0 laufende API-Kosten</li>
               </ul>
@@ -293,12 +296,15 @@ export default function Home() {
             </motion.div>
           </div>
           <div className="text-center mt-12">
-            <Link to="/services" className="btn-primary">
+            <Link to="/leistungen" className="btn-primary">
               Alle Leistungen ansehen
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Process Steps */}
+      <ProcessSteps />
 
       {/* Why Choose Us (Start-up Honest!) - mit schönem Rahmen */}
       <section className="py-16 bg-black/80 backdrop-blur-md border-y-2 border-primary/40 shadow-lg relative overflow-hidden">
@@ -316,23 +322,23 @@ export default function Home() {
             Warum GTSH Engineering?
           </motion.h2>
           <p className="text-lg text-white/70 mb-12 max-w-2xl mx-auto">
-            Wir sind ein junges Start-up aus Thüringen - und genau das ist unsere Stärke!
+            Kein Büro-Overhead, kein Projektmanager-Aufschlag. Sie arbeiten direkt mit dem Entwickler.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="card">
               <div className="text-5xl font-bold text-primary mb-2">5.0</div>
               <p className="text-xl text-white/90 mb-2">⭐⭐⭐⭐⭐</p>
-              <p className="text-sm text-white/60">Google Reviews (GTSH Gaming)</p>
+              <p className="text-sm text-white/60">Google Reviews (GTSH Custom PCs)</p>
             </div>
             <div className="card">
-              <div className="text-5xl font-bold text-white/80 mb-2">20%</div>
-              <p className="text-xl text-white/90 mb-2">Pionier-Rabatt</p>
-              <p className="text-sm text-white/60">Für unsere ersten Kunden!</p>
+              <div className="text-5xl font-bold text-white/80 mb-2">100%</div>
+              <p className="text-xl text-white/90 mb-2">Festpreise</p>
+              <p className="text-sm text-white/60">Keine Überraschungen</p>
             </div>
             <div className="card">
               <div className="text-5xl font-bold text-primary mb-2">2026</div>
-              <p className="text-xl text-white/90 mb-2">Frisch gestartet</p>
-              <p className="text-sm text-white/60">Motiviert & hungrig</p>
+              <p className="text-xl text-white/90 mb-2">Motiviert. Direkt.</p>
+              <p className="text-sm text-white/60">Persönlicher Kontakt</p>
             </div>
           </div>
         </div>
@@ -348,11 +354,11 @@ export default function Home() {
       <section className="py-24 bg-transparent">
         <div className="container-custom">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-white/10 max-w-3xl mx-auto">
             <h2 className="mb-4 text-white">
               Unser erstes Projekt - Unsere Referenz
             </h2>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90">
               Wir haben für uns selbst gebaut - mit der gleichen Qualität, die Sie von uns erwarten können!
             </p>
           </div>
@@ -434,24 +440,22 @@ export default function Home() {
                   </a>
                 </div>
 
-                {/* Pionier-Rabatt Card */}
+                {/* Warum günstiger Card */}
                 <div className="card border-2 border-secondary bg-gradient-to-br from-secondary/5 to-primary/5">
-                  <div className="text-4xl mb-3">🚀</div>
+                  <div className="text-4xl mb-3">🤝</div>
                   <h3 className="mb-3 text-white">
-                    Werde Pionier-Kunde!
+                    Warum wir günstiger sind als Agenturen
                   </h3>
                   <p className="text-white/90 mb-4">
-                    Als junges Start-up bieten wir aktuell <strong>20% Pionier-Rabatt</strong>! 
-                    Profitiere von unserer Motivation, uns zu beweisen.
-                  </p>
-                  <p className="text-2xl font-bold text-white/80 mb-4">
-                    Spare bis zu €1.000!
+                    Kein Büro, kein Projektmanager, kein Overhead. 
+                    Sie arbeiten direkt mit dem Entwickler. 
+                    Das spart Ihnen 30-50% gegenüber klassischen Agenturen.
                   </p>
                   <a
                     href="/contact"
                     className="btn-secondary w-full text-center"
                   >
-                    Jetzt Pionier-Rabatt sichern
+                    Kostenloses Erstgespräch buchen
                   </a>
                 </div>
               </div>
@@ -459,7 +463,7 @@ export default function Home() {
           </div>
 
           {/* Call-to-Action */}
-          <div className="text-center mt-16">
+          <div className="text-center mt-16 bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-white/10 max-w-2xl mx-auto">
             <p className="text-xl text-white/90 mb-6">
               Wollen Sie das nächste Projekt sein?
             </p>
@@ -477,17 +481,19 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="section bg-transparent">
-        <div className="container-custom text-center">
-          <h2 className="mb-6">Bereit für digitale Transformation?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Buchen Sie ein kostenloses Erstgespräch und erfahren Sie, wie wir Ihr Business digitalisieren können.
-          </p>
-          <RippleButton
-            onClick={() => window.location.href = '/contact'}
-            className="bg-secondary hover:bg-secondary-dark text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 text-lg shadow-glow hover:shadow-glow-lg hover:scale-105 cursor-pointer"
-          >
-            Jetzt Termin vereinbaren
-          </RippleButton>
+        <div className="container-custom">
+          <div className="text-center bg-black/40 backdrop-blur-md rounded-2xl p-10 border border-white/10 max-w-3xl mx-auto">
+            <h2 className="mb-6">Bereit für digitale Transformation?</h2>
+            <p className="text-xl mb-8 opacity-90">
+              Buchen Sie ein kostenloses Erstgespräch und erfahren Sie, wie wir Ihr Business digitalisieren können.
+            </p>
+            <RippleButton
+              onClick={() => window.location.href = '/contact'}
+              className="bg-secondary hover:bg-secondary-dark text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 text-lg shadow-glow hover:shadow-glow-lg hover:scale-105 cursor-pointer"
+            >
+              Jetzt Termin vereinbaren
+            </RippleButton>
+          </div>
         </div>
       </section>
     </div>

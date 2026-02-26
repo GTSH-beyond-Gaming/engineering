@@ -799,7 +799,7 @@ export default function KISchulungen() {
                 Jetzt Workshop anfragen
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link to="/services" className="btn-primary bg-white/10 border-2 border-white/30 hover:bg-white/20 text-lg">
+              <Link to="/leistungen" className="btn-primary bg-white/10 border-2 border-white/30 hover:bg-white/20 text-lg">
                 Alle Leistungen ansehen
               </Link>
             </div>

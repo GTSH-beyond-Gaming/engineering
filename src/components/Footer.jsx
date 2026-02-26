@@ -28,7 +28,7 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
-              <li><Link to="/services" className="hover:text-primary transition-colors">Leistungen</Link></li>
+              <li><Link to="/leistungen" className="hover:text-primary transition-colors">Leistungen</Link></li>
               <li><Link to="/portfolio" className="hover:text-primary transition-colors">Portfolio</Link></li>
               <li><Link to="/about" className="hover:text-primary transition-colors">Über Uns</Link></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">Kontakt</Link></li>
@@ -39,11 +39,11 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Leistungen</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/services#web" className="hover:text-primary transition-colors">Web-Engineering</Link></li>
-              <li><Link to="/services#automation" className="hover:text-primary transition-colors">Business Automation</Link></li>
+              <li><Link to="/leistungen#web" className="hover:text-primary transition-colors">Web-Engineering</Link></li>
+              <li><Link to="/leistungen#automation" className="hover:text-primary transition-colors">Business Automation</Link></li>
               <li><Link to="/ki-schulungen" className="hover:text-primary transition-colors">KI-Schulungen</Link></li>
-              <li><Link to="/pakete" className="hover:text-primary transition-colors">Service-Pakete</Link></li>
-              <li><Link to="/services#private-ai" className="hover:text-primary transition-colors">Private AI</Link></li>
+              <li><Link to="/leistungen#pakete" className="hover:text-primary transition-colors">Service-Pakete</Link></li>
+              <li><Link to="/leistungen#private-ai" className="hover:text-primary transition-colors">Private AI</Link></li>
             </ul>
           </div>
 

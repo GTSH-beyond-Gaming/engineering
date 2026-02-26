@@ -389,7 +389,7 @@ export default function Grafikdesign() {
             <Link to="/contact" className="btn-primary text-lg">
               Design-Projekt starten
             </Link>
-            <Link to="/services" className="btn-secondary text-lg">
+            <Link to="/leistungen" className="btn-secondary text-lg">
               Alle Leistungen ansehen
             </Link>
           </motion.div>

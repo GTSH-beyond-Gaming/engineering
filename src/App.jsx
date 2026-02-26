@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
@@ -39,13 +39,14 @@ function App() {
             <Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/services" element={<Services />} />
+                <Route path="/leistungen" element={<Services />} />
+                <Route path="/services" element={<Navigate to="/leistungen" replace />} />
+                <Route path="/pakete" element={<Navigate to="/leistungen#pakete" replace />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="/datenschutz" element={<Datenschutz />} />
-                <Route path="/pakete" element={<Pakete />} />
                 <Route path="/ki-schulungen" element={<KISchulungen />} />
                 <Route path="/grafikdesign" element={<Grafikdesign />} />
                 <Route path="/ai-gallery" element={<AIGallery />} />

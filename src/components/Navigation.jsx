@@ -24,11 +24,8 @@ export default function Navigation() {
             <Link to="/" className="text-white/90 hover:text-primary font-medium transition-colors">
               Home
             </Link>
-            <Link to="/services" className="text-white/90 hover:text-primary font-medium transition-colors">
+            <Link to="/leistungen" className="text-white/90 hover:text-primary font-medium transition-colors">
               Leistungen
-            </Link>
-            <Link to="/pakete" className="text-white/90 hover:text-primary font-medium transition-colors">
-              Pakete
             </Link>
             <Link to="/portfolio" className="text-white/90 hover:text-primary font-medium transition-colors">
               Portfolio
@@ -64,11 +61,8 @@ export default function Navigation() {
             <Link to="/" onClick={() => setIsOpen(false)} className="block py-2 text-white/90 hover:text-primary font-medium">
               Home
             </Link>
-            <Link to="/services" onClick={() => setIsOpen(false)} className="block py-2 text-white/90 hover:text-primary font-medium">
+            <Link to="/leistungen" onClick={() => setIsOpen(false)} className="block py-2 text-white/90 hover:text-primary font-medium">
               Leistungen
-            </Link>
-            <Link to="/pakete" onClick={() => setIsOpen(false)} className="block py-2 text-white/90 hover:text-primary font-medium">
-              Pakete
             </Link>
             <Link to="/portfolio" onClick={() => setIsOpen(false)} className="block py-2 text-white/90 hover:text-primary font-medium">
               Portfolio

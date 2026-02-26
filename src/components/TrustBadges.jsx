@@ -14,8 +14,8 @@ export default function TrustBadges() {
     },
     {
       icon: Zap,
-      text: '🚀 Pionier-Rabatt',
-      description: '20% für Früh-Kunden'
+      text: 'Festpreise',
+      description: 'Keine Überraschungen'
     },
     {
       icon: Users,

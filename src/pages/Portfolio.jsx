@@ -73,29 +73,41 @@ export default function Portfolio() {
               </span>
             </motion.div>
 
-            {/* Browser Mockup */}
+            {/* Browser Mockup - GTSH Custom Design */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-2xl bg-transparent mb-8"
+              className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl mb-8"
             >
-              {/* Browser Bar */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 dark:border-gray-700 bg-transparent">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-primary" />
-                  <div className="w-3 h-3 rounded-full bg-secondary" />
-                  <div className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-secondary" />
+              {/* Browser Bar - Glasmorphism + GTSH Branding */}
+              <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10 bg-black/60 backdrop-blur-xl">
+                {/* Left: GTSH Branded Element */}
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary via-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/30">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-bold text-white/60 tracking-wider hidden sm:block">SHOWCASE</span>
                 </div>
-                <div className="flex-1 mx-4">
-                  <div className="bg-transparent rounded-md px-3 py-1.5 text-xs text-white/70 text-white/90 text-center font-mono max-w-md mx-auto">
+
+                {/* Center: URL in Glass Pill */}
+                <div className="flex-1 mx-2">
+                  <div className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-sm text-white/80 text-center font-medium max-w-md mx-auto flex items-center justify-center gap-2">
+                    <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                    </svg>
                     {project.url.replace('https://', '')}
                   </div>
                 </div>
+
+                {/* Right: Status as Gradient Bar */}
                 {project.status === 'LIVE' && (
-                  <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-green-100 dark:bg-green-900">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-xs font-semibold text-green-600 dark:text-green-300">Live</span>
+                  <div className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse shadow-lg shadow-green-400/50" />
+                    <div className="h-1 w-12 rounded-full bg-gradient-to-r from-green-400 via-primary to-secondary opacity-60" />
                   </div>
                 )}
               </div>
@@ -283,8 +295,8 @@ export default function Portfolio() {
             <Link to="/contact" className="btn-secondary text-lg">
               15-Min Strategy Call buchen
             </Link>
-            <Link to="/services" className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3 rounded-lg transition-all text-lg">
-              Alle Services ansehen
+            <Link to="/leistungen" className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3 rounded-lg transition-all text-lg">
+              Alle Leistungen ansehen
             </Link>
           </div>
         </div>

@@ -8,8 +8,7 @@ export default function PriceCalculator() {
   
   const websiteTypes = [
     { name: 'Landing Page', price: 800 },
-    { name: 'Custom Website', price: 2500 },
-    { name: 'E-Commerce', price: 5000 }
+    { name: 'Custom Website', price: 2500 }
   ]
   
   const availableAddOns = [
@@ -40,14 +39,6 @@ export default function PriceCalculator() {
     return getBasePrice() + getAddOnsPrice()
   }
   
-  const getTotalWithDiscount = () => {
-    return Math.round(getTotalPrice() * 0.8) // 20% Pionier-Rabatt
-  }
-  
-  const getSavings = () => {
-    return getTotalPrice() - getTotalWithDiscount()
-  }
-  
   return (
     <section className="section bg-transparent">
       <div className="container-custom max-w-4xl">
@@ -56,7 +47,7 @@ export default function PriceCalculator() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-12 bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-white/10 max-w-xl mx-auto"
         >
           <h2 className="mb-4 text-white">Was kostet Ihr Projekt?</h2>
           <p className="text-lg text-white/90">
@@ -76,7 +67,7 @@ export default function PriceCalculator() {
             <label className="block font-semibold text-lg mb-4 text-white">
               Website-Typ:
             </label>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {websiteTypes.map((type) => (
                 <motion.button
                   key={type.name}
@@ -144,21 +135,16 @@ export default function PriceCalculator() {
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
-            key={getTotalWithDiscount()} // Re-animate on price change
+            key={getTotalPrice()}
           >
             <p className="text-sm opacity-90 mb-2">Geschätzter Preis:</p>
             <div className="flex items-baseline gap-3 mb-3">
               <p className="text-5xl font-bold">
-                €{getTotalWithDiscount().toLocaleString()}
+                €{getTotalPrice().toLocaleString()}
               </p>
-              {getSavings() > 0 && (
-                <span className="text-lg line-through opacity-75">
-                  €{getTotalPrice().toLocaleString()}
-                </span>
-              )}
             </div>
             <p className="text-sm opacity-90 mb-6">
-              inkl. 20% Pionier-Rabatt – spare €{getSavings().toLocaleString()}!
+              Festpreis. Keine versteckten Kosten.
             </p>
             
             {/* Breakdown */}
@@ -180,12 +166,8 @@ export default function PriceCalculator() {
               )}
               <div className="border-t border-white/20 my-2" />
               <div className="flex justify-between font-semibold">
-                <span>Summe:</span>
+                <span>Gesamtpreis:</span>
                 <span>€{getTotalPrice().toLocaleString()}</span>
-              </div>
-              <div className="flex justify-between text-yellow-300">
-                <span>Pionier-Rabatt (20%):</span>
-                <span>-€{getSavings().toLocaleString()}</span>
               </div>
             </div>
             

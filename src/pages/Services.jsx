@@ -89,7 +89,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               <div className="card">
                 <h3 className="mb-3">Custom Websites</h3>
                 <p className="text-white/90 mb-4">
@@ -286,21 +286,21 @@ export default function Services() {
               </div>
             </div>
 
-            {/* Paket-Deals */}
+            {/* Beratungs-Pakete */}
             <div className="card bg-gradient-to-br from-primary via-primary to-primary-dark text-white border-2 border-white/20">
-              <h3 className="mb-4 text-white">Paket-Deals (Sparen Sie 20%!)</h3>
+              <h3 className="mb-4 text-white">Beratungs-Pakete</h3>
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
                   <p className="font-semibold mb-2 text-white">Starter</p>
                   <p className="text-3xl font-bold mb-2 text-white">€1.000</p>
                   <p className="text-sm mb-1 text-white">10h Beratung</p>
-                  <p className="text-xs text-white/80">(statt €1.500)</p>
+                  <p className="text-xs text-white/80">€100/h</p>
                 </div>
                 <div className="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors border-2 border-secondary">
                   <p className="font-semibold mb-2 text-white">Business</p>
                   <p className="text-3xl font-bold mb-2 text-white/80">€2.400</p>
                   <p className="text-sm mb-1 text-white">20h Beratung</p>
-                  <p className="text-xs text-white/80">(statt €3.000)</p>
+                  <p className="text-xs text-white/80">€120/h</p>
                   <div className="mt-2">
                     <span className="text-xs bg-secondary px-2 py-1 rounded-full font-semibold">BELIEBT</span>
                   </div>
@@ -309,7 +309,7 @@ export default function Services() {
                   <p className="font-semibold mb-2 text-white">Enterprise</p>
                   <p className="text-3xl font-bold mb-2 text-white">€4.800</p>
                   <p className="text-sm mb-1 text-white">40h Beratung</p>
-                  <p className="text-xs text-white/80">(statt €6.000)</p>
+                  <p className="text-xs text-white/80">€120/h</p>
                 </div>
               </div>
             </div>
@@ -346,10 +346,10 @@ export default function Services() {
                 </div>
                 <h3 className="mb-3">Lokale LLM-Installation</h3>
                 <p className="text-white/90 mb-4">
-                  Wir richten leistungsstarke KI-Modelle auf Ihrer eigenen Hardware ein. Bis zu 70B Parameter, lokal und sicher.
+                  Leistungsstarke Modelle auf Ihrer eigenen Hardware. Auf Consumer-GPUs bis 32B Parameter flüssig, auf Workstation-Hardware auch größere.
                 </p>
                 <ul className="space-y-2 text-sm text-white/90 mb-4">
-                  <li>✓ Lokale LLMs (bis 70B Parameter)</li>
+                  <li>✓ Lokale LLMs (32B+ Parameter)</li>
                   <li>✓ Hardware-Beratung & Setup</li>
                   <li>✓ Keine Daten verlassen Ihr Netzwerk</li>
                   <li>✓ 61 tok/s auf eigener Hardware</li>
@@ -397,19 +397,147 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Service-Pakete */}
+      <section className="section bg-transparent" id="pakete">
+        <div className="container-custom">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12 bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-xl mx-auto"
+            >
+              <h2 className="mb-2 text-white">Service-Pakete</h2>
+              <p className="text-lg text-white/70">
+                Alles aus einer Hand. Klare Preise. Kein Kleingedrucktes.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              {/* Starter-Paket */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="card border-2 border-primary/30"
+              >
+                <div className="text-center mb-6">
+                  <span className="text-sm text-primary font-semibold">STARTER</span>
+                  <p className="text-4xl font-bold text-white mt-2">€2.400</p>
+                  <p className="text-sm text-white/60">Ideal für Gründer & Freelancer</p>
+                </div>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> Landing Page
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> KI-Basics Workshop (4h)
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> Basic Automation Setup
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> 3 Monate Wartung gratis
+                  </li>
+                </ul>
+                <Link to="/contact" className="btn-primary w-full text-center">
+                  Paket anfragen
+                </Link>
+              </motion.div>
+
+              {/* Growth-Paket */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="card border-2 border-secondary relative"
+              >
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-secondary text-white text-xs px-3 py-1 rounded-full font-semibold">BELIEBT</span>
+                </div>
+                <div className="text-center mb-6">
+                  <span className="text-sm text-secondary font-semibold">GROWTH</span>
+                  <p className="text-4xl font-bold text-white mt-2">€5.500</p>
+                  <p className="text-sm text-white/60">Ideal für wachsende KMU</p>
+                </div>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> Custom Website
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> KI-Workshop für Team (8h)
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> AI Chatbot
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> 6 Monate Wartung gratis
+                  </li>
+                </ul>
+                <Link to="/contact" className="btn-secondary w-full text-center">
+                  Paket anfragen
+                </Link>
+              </motion.div>
+
+              {/* Scale-Paket */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="card border-2 border-primary/30"
+              >
+                <div className="text-center mb-6">
+                  <span className="text-sm text-primary font-semibold">SCALE</span>
+                  <p className="text-4xl font-bold text-white mt-2">€9.000</p>
+                  <p className="text-sm text-white/60">Ideal für etablierte Unternehmen</p>
+                </div>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> Custom Website
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> Private AI Setup
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> Business Automation
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-green-500">✓</span> 12 Monate Wartung gratis
+                  </li>
+                </ul>
+                <Link to="/contact" className="btn-primary w-full text-center">
+                  Paket anfragen
+                </Link>
+              </motion.div>
+            </div>
+
+            <div className="card text-center">
+              <p className="text-white/80">
+                Pakete sind günstiger als Einzelbuchung, weil wir die Projekte zusammen planen und Synergien nutzen können.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="section bg-transparent">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-center mb-4 text-white">
-              Häufige Fragen
-            </h2>
-            <p className="text-center text-white/60 mb-12">
-              Alles was Sie über unsere Leistungen wissen müssen
-            </p>
+            <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 mb-12 border border-white/10 max-w-lg mx-auto">
+              <h2 className="text-center mb-2 text-white">
+                Häufige Fragen
+              </h2>
+              <p className="text-center text-white/60">
+                Alles was Sie über unsere Leistungen wissen müssen
+              </p>
+            </div>
             <FAQ items={faqItems} />
-            <div className="text-center mt-12">
-              <p className="text-white/60 mb-4">
+            <div className="text-center mt-12 bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-white/10 max-w-md mx-auto">
+              <p className="text-white/80 mb-4 text-lg">
                 Haben Sie weitere Fragen?
               </p>
               <Link to="/contact" className="btn-primary">
