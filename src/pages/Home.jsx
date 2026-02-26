@@ -333,7 +333,8 @@ export default function Home() {
             <div className="card">
               <div className="text-5xl font-bold text-primary mb-2">5.0</div>
               <p className="text-xl text-white/90 mb-2">⭐⭐⭐⭐⭐</p>
-              <p className="text-sm text-white/60">Google Reviews (GTSH Custom PCs)</p>
+              <p className="text-sm text-white/60">12× Google Reviews — GTSH Hardware</p>
+              <p className="text-xs text-white/40 mt-1">Gleicher Gründer, gleicher Anspruch.</p>
             </div>
             <div className="card">
               <div className="text-5xl font-bold text-white/80 mb-2">100%</div>
@@ -430,19 +431,24 @@ export default function Home() {
                     <span className="text-3xl font-bold text-white">5,0</span>
                   </div>
                   <p className="text-xl font-semibold text-white mb-2">
-                    12 echte Google Reviews
+                    12× 5 Sterne — GTSH Custom PCs
                   </p>
                   <p className="text-white/90 mb-4">
-                    Von echten Kunden, die unsere Qualität erlebt haben.
+                    Unsere Hardware-Sparte. Den gleichen Qualitätsanspruch bringen wir in jedes Engineering-Projekt.
                   </p>
-                  <a
-                    href="https://gtsh-beyond-gaming.de"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline font-medium"
-                  >
-                    Reviews ansehen →
-                  </a>
+                  <div className="flex flex-col gap-3">
+                    <a
+                      href="https://gtsh-beyond-gaming.de"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline font-medium text-sm"
+                    >
+                      Reviews auf Google ansehen →
+                    </a>
+                    <p className="text-xs text-white/50 border-t border-white/10 pt-3">
+                      Sie waren unser Kunde? Wir freuen uns über Ihre Bewertung!
+                    </p>
+                  </div>
                 </div>
 
                 {/* Warum günstiger Card */}
