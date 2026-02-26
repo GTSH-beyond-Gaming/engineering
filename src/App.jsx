@@ -18,8 +18,8 @@ const Impressum = lazy(() => import('./pages/Impressum'))
 const Datenschutz = lazy(() => import('./pages/Datenschutz'))
 const Pakete = lazy(() => import('./pages/Pakete'))
 const KISchulungen = lazy(() => import('./pages/KISchulungen'))
-// Grafikdesign removed - focusing on core services
-// const Grafikdesign = lazy(() => import('./pages/Grafikdesign'))
+const Grafikdesign = lazy(() => import('./pages/Grafikdesign'))
+const AIGallery = lazy(() => import('./pages/AIGallery'))
 
 // Loading spinner component
 const PageLoader = () => (
@@ -46,7 +46,8 @@ function App() {
                 <Route path="/datenschutz" element={<Datenschutz />} />
                 <Route path="/pakete" element={<Pakete />} />
                 <Route path="/ki-schulungen" element={<KISchulungen />} />
-                {/* Grafikdesign route removed */}
+                <Route path="/grafikdesign" element={<Grafikdesign />} />
+                <Route path="/ai-gallery" element={<AIGallery />} />
               </Routes>
             </Suspense>
           </main>
