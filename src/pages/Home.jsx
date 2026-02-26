@@ -203,7 +203,7 @@ export default function Home() {
               Unsere Leistungen
             </h2>
           </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {/* Web-Engineering */}
             <motion.div 
               className="card group hover:shadow-glow transition-all duration-300 border border-transparent hover:border-primary/30"
