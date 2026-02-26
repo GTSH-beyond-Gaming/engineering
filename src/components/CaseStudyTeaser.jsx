@@ -16,7 +16,7 @@ export default function CaseStudyTeaser() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-card rounded-3xl overflow-hidden"
+          className="bg-black/50 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden"
         >
           <div className="grid lg:grid-cols-2 gap-0">
             {/* Left: Content */}
@@ -39,7 +39,7 @@ export default function CaseStudyTeaser() {
                   { icon: Shield, value: '100%', label: 'Lokal' },
                   { icon: Zap, value: '0€', label: 'API-Kosten' },
                 ].map((stat) => (
-                  <div key={stat.label} className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-lg">
+                  <div key={stat.label} className="flex items-center gap-2 bg-black/40 border border-white/10 px-4 py-2 rounded-lg">
                     <stat.icon className="w-4 h-4 text-orange-500" />
                     <span className="font-bold text-white">{stat.value}</span>
                     <span className="text-gray-500 text-sm">{stat.label}</span>
@@ -57,7 +57,7 @@ export default function CaseStudyTeaser() {
             </div>
             
             {/* Right: Scenario Cards */}
-            <div className="bg-gradient-to-br from-orange-500/10 to-transparent p-8 lg:p-12 flex items-center">
+            <div className="bg-black/30 p-8 lg:p-12 flex items-center">
               <div className="space-y-4 w-full">
                 {scenarios.map((scenario, i) => (
                   <motion.div
