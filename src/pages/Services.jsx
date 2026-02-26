@@ -219,51 +219,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* E-Learning */}
-      <section className="section" id="elearning">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="mb-6 text-primary text-white">E-Learning Plattformen</h2>
-            <p className="text-lg text-white/90 mb-8">
-              Digitale Trainings-Plattformen die Ihre Mitarbeiter lieben werden.
-              Gamification, Analytics, mobil-optimiert.
-            </p>
-
-            <div className="card mb-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="mb-4 text-white">Custom LMS</h3>
-                  <ul className="space-y-3 text-white/90">
-                    <li>✓ Kurs-Management</li>
-                    <li>✓ User-Management</li>
-                    <li>✓ Video-Integration</li>
-                    <li>✓ Quizzes & Tests</li>
-                    <li>✓ Zertifikate</li>
-                    <li>✓ Progress-Tracking</li>
-                    <li>✓ Gamification (Points, Badges)</li>
-                    <li>✓ Mobile-optimiert</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="mb-4 text-white">Preise</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="font-semibold text-lg text-white">Basis-Plattform</p>
-                      <p className="text-3xl font-bold text-primary dark:text-primary mb-2">€5.000</p>
-                      <p className="text-sm text-white/90">Setup + 5 Kurse</p>
-                    </div>
-                    <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
-                      <p className="font-semibold text-lg text-white">Enterprise</p>
-                      <p className="text-3xl font-bold text-primary dark:text-primary mb-2">Ab €12.000</p>
-                      <p className="text-sm text-white/90">Custom Features + Integration + Branding</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* E-Learning - COMING SOON (auskommentiert bis Portfolio existiert) */}
 
       {/* Digital-Beratung */}
       <section className="section bg-transparent" id="consulting">

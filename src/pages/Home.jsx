@@ -241,26 +241,7 @@ export default function Home() {
               <p className="font-semibold text-white/80 text-lg">🚀 Ab €1.200 (Pionier-Preis!)</p>
             </motion.div>
 
-            {/* E-Learning */}
-            <motion.div 
-              className="card group hover:shadow-glow transition-all duration-300 border border-transparent hover:border-primary/30"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-brand-blue rounded-lg flex items-center justify-center mb-4 shadow-glow group-hover:shadow-glow-lg transition-shadow">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <h3 className="mb-3 group-hover:text-primary transition-colors">E-Learning</h3>
-              <p className="text-white/90 mb-4">
-                Digitale Trainings-Plattformen. Gamification, Analytics.
-              </p>
-              <p className="text-sm text-white/60 line-through mb-1">Ab €5.000</p>
-              <p className="font-semibold text-primary text-lg">🚀 Ab €4.000 (Pionier-Preis!)</p>
-            </motion.div>
+            {/* E-Learning - Coming Soon (auskommentiert bis Portfolio existiert) */}
 
             {/* Digital-Beratung */}
             <motion.div 

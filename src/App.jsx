@@ -20,6 +20,7 @@ const Pakete = lazy(() => import('./pages/Pakete'))
 const KISchulungen = lazy(() => import('./pages/KISchulungen'))
 const Grafikdesign = lazy(() => import('./pages/Grafikdesign'))
 const AIGallery = lazy(() => import('./pages/AIGallery'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 // Loading spinner component
 const PageLoader = () => (
@@ -48,6 +49,7 @@ function App() {
                 <Route path="/ki-schulungen" element={<KISchulungen />} />
                 <Route path="/grafikdesign" element={<Grafikdesign />} />
                 <Route path="/ai-gallery" element={<AIGallery />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
           </main>
