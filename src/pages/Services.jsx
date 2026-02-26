@@ -81,11 +81,13 @@ export default function Services() {
       <section className="section" id="web">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="mb-6 text-primary text-white">Web-Engineering</h2>
-            <p className="text-lg text-white/90 mb-8">
-              Moderne Websites die nicht nur gut aussehen, sondern auch konvertieren.
-              Wir nutzen cutting-edge Technologien wie React, Next.js und Tailwind CSS.
-            </p>
+            <div className="glass-panel-light mb-8">
+              <h2 className="mb-4 text-primary text-white">Web-Engineering</h2>
+              <p className="text-lg text-white/90">
+                Moderne Websites die nicht nur gut aussehen, sondern auch konvertieren.
+                Wir nutzen cutting-edge Technologien wie React, Next.js und Tailwind CSS.
+              </p>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="card">
@@ -144,11 +146,13 @@ export default function Services() {
       <section className="section bg-transparent" id="automation">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="mb-6 text-white/80 text-white">Business Automation</h2>
-            <p className="text-lg text-white/90 mb-8">
-              Sparen Sie bis zu 80% Ihrer Zeit durch intelligente Prozess-Automation.
-              Von PowerShell-Scripts bis Python-Anwendungen.
-            </p>
+            <div className="glass-panel-light mb-8">
+              <h2 className="mb-4 text-white">Business Automation</h2>
+              <p className="text-lg text-white/90">
+                Sparen Sie bis zu 80% Ihrer Zeit durch intelligente Prozess-Automation.
+                Von PowerShell-Scripts bis Python-Anwendungen.
+              </p>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="card">
@@ -225,11 +229,13 @@ export default function Services() {
       <section className="section bg-transparent" id="consulting">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="mb-6 text-white/80 text-white">Digital-Beratung</h2>
-            <p className="text-lg text-white/90 mb-8">
-              Strategische Beratung für Ihre digitale Transformation.
-              KI-Integration, Tech-Stack-Audit, Digitalisierungs-Roadmap.
-            </p>
+            <div className="glass-panel-light mb-8">
+              <h2 className="mb-4 text-white">Digital-Beratung</h2>
+              <p className="text-lg text-white/90">
+                Strategische Beratung für Ihre digitale Transformation.
+                KI-Integration, Tech-Stack-Audit, Digitalisierungs-Roadmap.
+              </p>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="card">
@@ -315,13 +321,15 @@ export default function Services() {
       <section className="section" id="private-ai">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-white/80 text-white">Private AI Solutions</h2>
-              <span className="bg-secondary text-white text-xs px-3 py-1 rounded-full font-semibold">NEU!</span>
+            <div className="glass-panel-light mb-8">
+              <div className="flex items-center gap-3 mb-4">
+                <h2 className="text-white">Private AI Solutions</h2>
+                <span className="bg-secondary text-white text-xs px-3 py-1 rounded-full font-semibold">NEU!</span>
+              </div>
+              <p className="text-lg text-white/90">
+                KI-Modelle die 100% lokal auf IHRER Hardware laufen. Keine Cloud. Keine API-Kosten. Maximale Privatsphäre.
+              </p>
             </div>
-            <p className="text-lg text-white/90 mb-8">
-              KI-Modelle die 100% lokal auf IHRER Hardware laufen. Keine Cloud. Keine API-Kosten. Maximale Privatsphäre.
-            </p>
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <motion.div

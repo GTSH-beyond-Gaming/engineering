@@ -106,6 +106,15 @@
   .card h3, .card h4 {
     @apply text-white;
   }
+
+  /* Glass Panel - für Textbereiche über Hintergrund */
+  .glass-panel {
+    @apply bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/10;
+  }
+
+  .glass-panel-light {
+    @apply bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-white/5;
+  }
   
   /* Sections - Alle transparent */
   .section {
