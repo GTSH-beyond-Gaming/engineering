@@ -54,8 +54,8 @@ export default function Footer() {
               <li>Randolf Hahn</li>
               <li>Saalfeld, Thüringen</li>
               <li>
-                <a href="mailto:randolf-hahn@gtsh-beyond-gaming.de" className="hover:text-primary transition-colors">
-                  randolf-hahn@gtsh-beyond-gaming.de
+                <a href="mailto:info@gtsh-engineering.de" className="hover:text-primary transition-colors">
+                  info@gtsh-engineering.de
                 </a>
               </li>
               <li>

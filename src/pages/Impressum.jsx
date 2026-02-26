@@ -47,13 +47,13 @@ function Impressum() {
               <span>+49 176 84940127</span>
             </a>
             <a 
-              href="mailto:randolf-hahn@gtsh-beyond-gaming.de" 
+              href="mailto:info@gtsh-engineering.de" 
               className="flex items-center gap-3 text-white/90 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              <span>randolf-hahn@gtsh-beyond-gaming.de</span>
+              <span>info@gtsh-engineering.de</span>
             </a>
             <div className="flex items-center gap-3 text-white/90">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

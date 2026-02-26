@@ -48,11 +48,11 @@ function Datenschutz() {
                 <span className="underline">+49 176 84940127</span>
               </a>
               <a 
-                href="mailto:randolf-hahn@gtsh-beyond-gaming.de" 
+                href="mailto:info@gtsh-engineering.de" 
                 className="flex items-center gap-2 text-sm text-white/60 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
               >
                 <span>E-Mail:</span>
-                <span className="underline">randolf-hahn@gtsh-beyond-gaming.de</span>
+                <span className="underline">info@gtsh-engineering.de</span>
               </a>
             </div>
           </div>

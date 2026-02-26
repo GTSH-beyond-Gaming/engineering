@@ -97,8 +97,8 @@ export default function Contact() {
                 </svg>
               </div>
               <h3 className="mb-2 text-white">Email</h3>
-              <a href="mailto:randolf-hahn@gtsh-beyond-gaming.de" className="text-primary hover:text-primary-dark transition-colors">
-                randolf-hahn@gtsh-beyond-gaming.de
+              <a href="mailto:info@gtsh-engineering.de" className="text-primary hover:text-primary-dark transition-colors">
+                info@gtsh-engineering.de
               </a>
             </div>
 

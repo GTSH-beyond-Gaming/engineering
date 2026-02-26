@@ -9,7 +9,7 @@ const CHAT_API_URL = import.meta.env.VITE_CHAT_API_URL || 'http://localhost:3334
 // Fallback Knowledge Base (wenn API nicht verfügbar)
 const fallbackResponses = {
   preis: 'Unsere Preise: Web ab €800, Automation ab €1.500, KI-Schulungen ab €800. Für Details empfehle ich ein kostenloses Erstgespräch!',
-  kontakt: 'Sie erreichen uns per Email (randolf-hahn@gtsh-beyond-gaming.de), Telefon (+49 176 84940127) oder WhatsApp!',
+  kontakt: 'Sie erreichen uns per Email (info@gtsh-engineering.de), Telefon (+49 176 84940127) oder WhatsApp!',
   default: 'Für individuelle Fragen empfehle ich ein kostenloses Erstgespräch. Kontaktieren Sie uns!'
 };
 
