@@ -58,7 +58,7 @@ export default function Portfolio() {
   return (
     <div>
       <title>Portfolio - Echte Projekte & Referenzen | GTSH Engineering</title>
-      <meta name="description" content="Unsere Referenzen: Live-Websites und aktuelle Projekte. GTSH Beyond Gaming, Randolf Hoppe und mehr. Echte Resultate aus Thüringen." />
+      <meta name="description" content="Unsere Referenzen: Live-Websites und aktuelle Projekte. GTSH Beyond Gaming, Clawdius KI-Assistent und mehr. Echte Resultate aus Thüringen." />
       <link rel="canonical" href="https://gtsh-engineering.de/portfolio" />
 
       {/* Header */}
