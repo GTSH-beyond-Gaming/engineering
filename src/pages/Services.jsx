@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import FAQ from '../components/FAQ'
+import ProcessSteps from '../components/ProcessSteps'
 
 export default function Services() {
   const faqItems = [
@@ -522,6 +523,9 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* Prozess */}
+      <ProcessSteps />
 
       {/* FAQ Section */}
       <section className="section bg-transparent">

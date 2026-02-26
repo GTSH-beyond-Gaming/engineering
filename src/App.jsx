@@ -5,8 +5,7 @@ import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import CookieBanner from './components/CookieBanner'
 import WhatsAppButton from './components/WhatsAppButton'
-// ChatBot disabled - localhost:3334 backend not available in production
-// import ChatBot from './components/ChatBot'
+import ChatBot from './components/ChatBot'
 
 // Lazy load all pages for code-splitting
 const Home = lazy(() => import('./pages/Home'))
@@ -16,10 +15,11 @@ const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Impressum = lazy(() => import('./pages/Impressum'))
 const Datenschutz = lazy(() => import('./pages/Datenschutz'))
-const Pakete = lazy(() => import('./pages/Pakete'))
+// Pakete entfernt - Redirect braucht keinen Import
 const KISchulungen = lazy(() => import('./pages/KISchulungen'))
 const Grafikdesign = lazy(() => import('./pages/Grafikdesign'))
 const AIGallery = lazy(() => import('./pages/AIGallery'))
+const Fallstudie = lazy(() => import('./pages/Fallstudie'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 // Loading spinner component
@@ -50,6 +50,7 @@ function App() {
                 <Route path="/ki-schulungen" element={<KISchulungen />} />
                 <Route path="/grafikdesign" element={<Grafikdesign />} />
                 <Route path="/ai-gallery" element={<AIGallery />} />
+                <Route path="/fallstudie" element={<Fallstudie />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
@@ -57,8 +58,7 @@ function App() {
           <Footer />
           <CookieBanner />
           <WhatsAppButton />
-          {/* ChatBot disabled - localhost:3334 backend not available in production */}
-          {/* <ChatBot /> */}
+          <ChatBot />
         </div>
       </Router>
     </ThemeProvider>

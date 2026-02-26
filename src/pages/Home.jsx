@@ -9,6 +9,7 @@ import { TypeAnimation } from 'react-type-animation'
 import { ChevronDown, Shield, Zap, Award } from 'lucide-react'
 import TerminalAnimation from '../components/TerminalAnimation'
 import ProcessSteps from '../components/ProcessSteps'
+import CaseStudyTeaser from '../components/CaseStudyTeaser'
 
 export default function Home() {
   return (
@@ -306,6 +307,9 @@ export default function Home() {
 
       {/* Process Steps */}
       <ProcessSteps />
+
+      {/* Case Study Teaser */}
+      <CaseStudyTeaser />
 
       {/* Why Choose Us (Start-up Honest!) - mit schönem Rahmen */}
       <section className="py-16 bg-black/80 backdrop-blur-md border-y-2 border-primary/40 shadow-lg relative overflow-hidden">
