@@ -73,8 +73,8 @@ export default function TrustStats() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative group"
               >
-                {/* Card */}
-                <div className="relative h-full bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 hover:border-primary/50 rounded-2xl p-6 text-center transition-all duration-300 hover:transform hover:scale-105">
+                {/* Card - Glasmorphism */}
+                <div className="relative h-full bg-white/5 backdrop-blur-xl border border-white/10 hover:border-primary/50 rounded-2xl p-6 text-center transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/10">
                   
                   {/* Gradient Top Bar */}
                   <div className={`absolute top-0 left-0 w-full h-1 rounded-t-2xl bg-gradient-to-r ${stat.color}`} />
@@ -85,11 +85,13 @@ export default function TrustStats() {
                   </div>
 
                   {/* Number */}
-                  <div className="mb-2">
-                    <span className="text-5xl font-bold gradient-text-animated">
-                      <NumberCounter end={stat.number} duration={2000} />
-                      {stat.suffix}
-                    </span>
+                  <div className="mb-2 text-5xl font-bold gradient-text-animated">
+                    <NumberCounter 
+                      end={stat.number} 
+                      duration={2000} 
+                      suffix={stat.suffix}
+                      className="inline-block"
+                    />
                   </div>
 
                   {/* Label */}

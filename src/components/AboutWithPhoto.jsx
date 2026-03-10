@@ -22,10 +22,10 @@ export default function AboutWithPhoto() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Photo */}
-            <div className="relative rounded-2xl overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20">
+            {/* Photo - Glasmorphism Border */}
+            <div className="relative rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl shadow-primary/20 backdrop-blur-sm">
               <img
-                src="/randy-ceo-portrait.png"
+                src="/randy-photo.png"
                 alt="Randolf Hahn – Geschäftsführer GTSH Engineering"
                 className="w-full h-auto object-cover"
               />
@@ -33,8 +33,8 @@ export default function AboutWithPhoto() {
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               
-              {/* Badge */}
-              <div className="absolute bottom-6 left-6 bg-black/80 backdrop-blur-sm border border-primary/30 rounded-lg px-4 py-2">
+              {/* Badge - Glasmorphism */}
+              <div className="absolute bottom-6 left-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg px-4 py-2">
                 <p className="text-sm text-gray-300">Ihr lokaler KI-Partner</p>
                 <p className="font-bold text-primary">Saalfeld, Thüringen</p>
               </div>

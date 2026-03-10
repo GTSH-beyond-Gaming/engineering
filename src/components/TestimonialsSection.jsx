@@ -55,8 +55,8 @@ export default function TestimonialsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative"
             >
-              {/* Card */}
-              <div className="relative h-full bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8">
+              {/* Card - Glasmorphism */}
+              <div className="relative h-full bg-white/5 backdrop-blur-xl border border-white/10 hover:border-primary/30 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
                 
                 {/* Quote Icon */}
                 <div className="absolute top-6 right-6 opacity-10">

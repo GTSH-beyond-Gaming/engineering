@@ -34,7 +34,7 @@ export default function NumberCounter({ end, duration = 2, suffix = '', classNam
   }, [end, duration, isInView])
 
   return (
-    <motion.div
+    <motion.span
       ref={ref}
       className={className}
       initial={{ opacity: 0, scale: 0.5 }}
@@ -42,7 +42,7 @@ export default function NumberCounter({ end, duration = 2, suffix = '', classNam
       transition={{ duration: 0.5 }}
     >
       {count}{suffix}
-    </motion.div>
+    </motion.span>
   )
 }
 
