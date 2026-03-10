@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node api-demo.js",
-    "dev": "node api-demo.js"
+    "start": "node -r dotenv/config api-demo-secure.js",
+    "dev": "node -r dotenv/config api-demo-secure.js",
+    "old": "node api-demo.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
     "node-fetch": "^3.3.2"
   }
 }

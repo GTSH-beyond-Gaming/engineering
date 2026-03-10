@@ -57,7 +57,11 @@
 @layer components {
   /* Buttons - Jetzt Orange! */
   .btn-primary {
-    @apply bg-[#E65100] hover:bg-[#BF360C] text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-glow;
+    @apply bg-[#E65100] hover:bg-[#BF360C] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-glow;
+    @apply text-sm sm:text-base md:px-8;
+    @apply whitespace-nowrap; /* Text nicht umbrechen */
+    @apply inline-block min-w-fit; /* Button so breit wie Text */
+    /* Mobile: kleinere Schrift, kein Umbruch */
   }
   
   .btn-secondary {

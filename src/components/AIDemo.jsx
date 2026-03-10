@@ -29,13 +29,14 @@ export default function AIDemo() {
   const [error, setError] = useState(null)
   const messagesEndRef = useRef(null)
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
+  // Auto-Scroll DEAKTIVIERT (User scrollt selbst)
+  // const scrollToBottom = () => {
+  //   messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  // }
 
-  useEffect(() => {
-    scrollToBottom()
-  }, [messages])
+  // useEffect(() => {
+  //   scrollToBottom()
+  // }, [messages])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -112,8 +113,9 @@ export default function AIDemo() {
           </div>
         </div>
         <div className="text-right">
-          <div className="text-sm text-gray-400">Verbleibend:</div>
-          <div className="text-xl font-bold text-[#00ffc8]">{remainingPrompts}/3</div>
+          <div className="text-sm text-gray-400">Demo-Anfragen:</div>
+          <div className="text-xl font-bold text-[#00ffc8]">{3 - remainingPrompts}/3</div>
+          <div className="text-xs text-gray-500">({remainingPrompts} übrig)</div>
         </div>
       </div>
 
