@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Brain, Users, Target, ShieldCheck, TrendingUp, CheckCircle, MessageSquare, ArrowRight, Clock, ChevronDown, Briefcase, UserCheck, Lightbulb, Wrench, FileText, Mail, Check, X } from 'lucide-react'
 import FAQ from '../components/FAQ'
+import AIDemo from '../components/AIDemo'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -103,8 +104,57 @@ export default function KISchulungen() {
         </div>
       </section>
 
+      {/* AI Live Demo Section */}
+      <section className="section bg-gradient-to-br from-gray-900 via-black to-gray-900">
+        <div className="container-custom">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              className="text-center mb-12"
+              {...fadeInUp}
+            >
+              <h2 className="mb-4 text-white">🤖 Sehen Sie KI live in Aktion</h2>
+              <p className="text-lg text-white/90 max-w-3xl mx-auto mb-8">
+                Diese KI läuft <strong>JETZT</strong> auf unserer Hardware in Saalfeld (RTX 5070, 12GB VRAM).
+                Keine Cloud. Ihre Prompts werden nicht gespeichert. Probieren Sie es aus!
+              </p>
+            </motion.div>
+            
+            <motion.div
+              {...fadeInUp}
+              transition={{ delay: 0.2 }}
+            >
+              <AIDemo />
+            </motion.div>
+
+            <motion.div
+              className="mt-12 text-center"
+              {...fadeInUp}
+              transition={{ delay: 0.4 }}
+            >
+              <p className="text-gray-400 text-sm mb-4">
+                💡 In unseren Schulungen lernen Sie, wie Sie solche Modelle selbst einsetzen können
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <a
+                  href="#workshops"
+                  className="bg-primary hover:bg-primary-light text-gray-900 font-bold px-8 py-3 rounded-xl transition-all transform hover:scale-105"
+                >
+                  Zu den Workshops
+                </a>
+                <a
+                  href="/contact"
+                  className="bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-3 rounded-xl transition-all border border-white/20"
+                >
+                  Erstgespräch buchen
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Workshop Cards */}
-      <section className="section">
+      <section className="section" id="workshops">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <motion.div
