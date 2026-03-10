@@ -10,6 +10,10 @@ import { ChevronDown, Shield, Zap, Award } from 'lucide-react'
 import TerminalAnimation from '../components/TerminalAnimation'
 import ProcessSteps from '../components/ProcessSteps'
 import CaseStudyTeaser from '../components/CaseStudyTeaser'
+import TrustStats from '../components/TrustStats'
+import FeaturedProducts from '../components/FeaturedProducts'
+import TestimonialsSection from '../components/TestimonialsSection'
+import AboutWithPhoto from '../components/AboutWithPhoto'
 
 export default function Home() {
   return (
@@ -32,11 +36,9 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
               >
                 <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  <span className="gradient-text-animated">Lokale KI.</span>{" "}
-                  <span className="text-white/80">Maximale Kontrolle.</span>
+                  <span className="gradient-text-animated">Weniger Papierkram,</span>{" "}
                   <br />
-                  <span className="text-white">Websites & Automation</span>{" "}
-                  <span className="text-white/80">ohne Cloud-Abhängigkeit.</span>
+                  <span className="text-white">mehr Zeit für Ihr Geschäft.</span>
                 </h1>
               </motion.div>
 
@@ -47,8 +49,7 @@ export default function Home() {
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto lg:mx-0 opacity-90"
               >
-                KI-Engineering + Web-Development für KMU in Thüringen.{" "}
-                100% lokal. 100% DSGVO. 0% US-Cloud.
+                KI-Lösungen, die Ihnen im Alltag wirklich helfen – lokal in Thüringen.
               </motion.p>
 
               <motion.p
@@ -57,7 +58,7 @@ export default function Home() {
                 transition={{ delay: 0.7, duration: 0.8 }}
                 className="text-lg mb-8 max-w-2xl mx-auto lg:mx-0 opacity-80"
               >
-                Mehr qualifizierte Leads. Weniger manuelle Arbeit. Messbarer ROI.
+                Websites, Automatisierung & KI-Schulungen. 100% DSGVO-konform. Persönliche Betreuung vor Ort.
               </motion.p>
 
               {/* Animated Buttons */}
@@ -138,55 +139,17 @@ export default function Home() {
       {/* Trust Badges */}
       <TrustBadges />
 
-      {/* Problem-Solution */}
-      <section className="section ">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-8 items-stretch">
-            <div className="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/10">
-              <h2 className="mb-6 text-white">Das Problem</h2>
-              <ul className="space-y-4 text-lg text-white/90">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3 text-2xl">✗</span>
-                  <span>Manuelle Prozesse fressen Zeit + Geld</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3 text-2xl">✗</span>
-                  <span>Zu viel Admin-Kram, zu wenig echte Arbeit</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3 text-2xl">✗</span>
-                  <span>Keine Zeit für Marketing & Kundengewinnung</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3 text-2xl">✗</span>
-                  <span>Veraltete Website oder gar keine</span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-black/50 backdrop-blur-md rounded-2xl p-8 border border-white/10">
-              <h2 className="mb-6 text-white">Die Lösung</h2>
-              <ul className="space-y-4 text-lg text-white/90">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-3 text-2xl">✓</span>
-                  <span>Automation spart bis zu 80% Arbeitszeit</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-3 text-2xl">✓</span>
-                  <span>Prozesse laufen automatisch im Hintergrund</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-3 text-2xl">✓</span>
-                  <span>Mehr Zeit für Ihr Kerngeschäft</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-3 text-2xl">✓</span>
-                  <span>Moderne Website die Kunden generiert</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* NEU: Konkrete Zahlen & Fakten */}
+      <TrustStats />
+
+      {/* NEU: Featured Products - 3 Hauptprodukte */}
+      <FeaturedProducts />
+
+      {/* NEU: Testimonials - Kundenstimmen */}
+      <TestimonialsSection />
+
+      {/* NEU: About Randy with Photo */}
+      <AboutWithPhoto />
 
 
       {/* Services Overview */}
